@@ -7,8 +7,9 @@ module.exports = function(grunt) {
                     './bower_components/jquery/dist/jquery.min.js',
                     './bower_components/datatables/media/js/jquery.dataTables.min.js',
                     './bower_components/angular/angular.min.js',
-                    './bower_components/angular-sanitize/angular-sanitize.min.js',
                     './bower_components/angular-bootstrap/ui-bootstrap.js',
+                    './bower_components/angular-datatables/dist/angular-datatables.min.js',
+                    './bower_components/angular-sanitize/angular-sanitize.min.js',
                     './bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
                     './bower_components/angular-route/angular-route.min.js',
                     './bower_components/angular-animate/angular-animate.min.js',
@@ -16,8 +17,6 @@ module.exports = function(grunt) {
                     './bower_components/angular-aria/angular-aria.min.js',
                     './bower_components/angular-ui-router/release/angular-ui-router.min.js',
                     './bower_components/underscore/underscore-min.js',
-                    './bower_components/angular-datatables/dist/angular-datatables.min.js',
-                    './bower_components/angular-datatables/dist/plugins/bootstrap/angular-datatables.bootstrap.min.js',
                     './bower_components/angular-underscore-module/angular-underscore-module.js',
                     './bower_components/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js',
                     './bower_components/angular-bootstrap-slider/slider.js',
@@ -25,7 +24,8 @@ module.exports = function(grunt) {
                     './bower_components/ng-notify/dist/ng-notify.min.js',
                     './bower_components/angular-breadcrumb/dist/angular-breadcrumb.js',
                     './bower_components/angular-md5/angular-md5.min.js',
-                    './bower_components/angular-resource/angular-resource.js'
+                    './bower_components/angular-resource/angular-resource.js',
+                    './bower_components/angular-datatables/dist/plugins/bootstrap/angular-datatables.bootstrap.min.js'
                 ],
                 dest: './manage/bower.js'
             },
@@ -45,7 +45,6 @@ module.exports = function(grunt) {
                     './bower_components/font-awesome/css/font-awesome.min.css',
                     './bower_components/textAngular/dist/textAngular.css',
                     './bower_components/ngtoast/dist/ngToast-animations.min.css',
-                    './bower_components/angular-datatables/dist/css/angular-datatables.min.css',
                     './bower_components/angular-datatables/dist/plugins/bootstrap/datatables.bootstrap.min.css',
                     './bower_components/ng-notify/dist/ng-notify.min.css',
                     './bower_components/ng-tags-input/ng-tags-input.min.css'

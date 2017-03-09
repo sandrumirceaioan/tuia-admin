@@ -503,3 +503,8 @@ tags-input .tags .input {
     .active-menu .icn-color {
         color:#ffffff !important;
     }
+
+    .nav-tabs-custom {
+        border-bottom: 0px solid !important;
+        background: none !important;
+    }

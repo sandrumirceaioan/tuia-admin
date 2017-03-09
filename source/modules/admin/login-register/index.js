@@ -10,9 +10,10 @@
                 resolve: {
                     checklogged: function($rootScope, $state, LogUser){
                         LogUser.loggedUser().then(function(result){
-                            if (result.success) $state.go('admin.dashboard.home');
+                            $rootScope.logged = result;
+                            $state.go('admin.dashboard.home');
                         }).catch(function(error){
-                            console.log(error);
+                            $state.go('admin.login');
                         });
                     }
                 }

@@ -11,17 +11,49 @@ angular.module('admin-orders', []).config(['$stateProvider', function($stateProv
           },
           controller: 'ordersCtrl',
           resolve: {
-            getOrd: function($rootScope, $state, orders){
+            getOrd: function($q, $rootScope, $state, orders, ngNotify){
                 return orders.getOrders().then(function(result){
-                  console.log('resolve result: ', result);
                     return result;
                 }).catch(function(error){
-                    $q.reject(error);
+                    var err = JSON.parse(error.data);
+                    ngNotify.set(err.error, {
+                        theme: 'pure',
+                        type: 'error',
+                        duration: 3000,
+                        button: true,
+                        html: true
+                    });
+                    return $q.reject(error);
                 });
             }
           }
-      });
-
+      })
+      .state('admin.dashboard.order', {
+              url: "/orders/:orderDetails",
+              ncyBreadcrumb: {
+                  label: 'Order'
+              },
+              templateProvider: function($templateCache) {
+                  return $templateCache.get('modules/admin/orders/view/order.html');
+              },
+              controller: 'orderCtrl',
+              resolve: {
+                oneOrd: function($q, $rootScope, $state, orders, ngNotify, $stateParams){
+                    return orders.getOneOrder($stateParams).then(function(result){
+                        return result;
+                    }).catch(function(error){
+                        var err = JSON.parse(error.data);
+                        ngNotify.set(err.error, {
+                            theme: 'pure',
+                            type: 'error',
+                            duration: 3000,
+                            button: true,
+                            html: true
+                        });
+                        return $q.reject(error);
+                    });
+                }
+              }
+          });
 }]);
-
 })();
