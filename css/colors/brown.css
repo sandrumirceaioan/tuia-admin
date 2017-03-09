@@ -1,0 +1,148 @@
+/* CSS Document */
+
+/*== BACKGROUND ==*/
+.top-menu a:hover,
+.wr-bot-header,
+.wr-slider .bx-wrapper .bx-controls-direction a,
+.hight-light-title,
+.product-item .add-to-cart,
+.wr-breadcrumb,
+.newsletter input[type="submit"],
+.social-counter:hover .icon,
+.btn-404,
+.post-dc-info .date,
+.submit-btn,
+.pagination li a:hover,
+.masonry-blog .large-item .read-more,
+.masonry-pagination > button,
+.quantity.minus-hover:after,
+.quantity.plus-hover:before,
+.cart-page .remove:hover,
+.post-video .video-title,
+.back-to-bottom,
+.wr-callout .callout-box.cb-r-button .wr-btn,
+#cost-price-slider .ui-state-default,
+.product-summary .wr-btn,
+.single-feature-product .bx-wrapper .bx-controls-direction a:hover,
+.ui-selectmenu-button:hover span.ui-icon,
+.sort-by .view label.active i, 
+.sort-by .view i:hover,
+.callout-box.cb-r-button .wr-btn,
+span.dropcap4,
+.image-banner.style3 .read-more,
+.carousel-blog-list .owl-buttons > div,
+.li-standard.l-number li:before,
+.li-standard.list-icons.boxed-icon li i,
+.service-box.colorfull:hover .icon,
+.service-box:hover h3:after,
+.service-box.full-bg .icon,
+.wr-slider .bx-wrapper .bx-controls-direction a,
+.wr-blog-article .bx-wrapper .bx-controls-direction a,
+.cd-form input[type="submit"],
+.custom-header .top-menu li a:hover,
+.custom-header .contact-header i,
+.custom-header .wr-main-menu .post-video .video-title,
+.owl-buttons > div,
+.wr-wrapper-v4 .wr-blog-article .read-more,
+.wr-bot-footer .buy-now-btn,
+#sale-popup form .input-submit input{
+	background: #786d5b;
+}
+.product-item .add-to-cart-button,
+.newsletter input[type="submit"]:hover{
+	background:#50493d;
+}
+.wr-adv .parallax,
+.image-banner.style3:hover .mask{
+	background: rgba(120, 109, 91, 0.8);
+}
+.image-banner:hover .mask{
+	background: rgba(120, 109, 91, 0.5);
+}
+
+/*== COLOR ==*/
+a:hover,
+.heading-title h1,
+.wr-main-menu .sub-menu li:hover > a,
+.wr-testimonial .author,
+.product-item h3 a:hover,
+.blog-item h3 a:hover,
+.post-duc li a:hover,
+.social-counter:hover .info span,
+.wr-top-footer a:hover, 
+.wr-top-footer li:hover,
+.service-box .icon,
+.panel-group .action i,
+.elements-sidebar li a:hover, 
+.elements-sidebar li a:hover i,
+.bestseller-sidebar .sale-price,
+.recent-twitter a,
+.blog-list .read-more,
+.blog-list h3 a:hover,
+.bestseller-sidebar h4 a:hover,
+.continue-shop a,
+.cart-collaterals .cart-total td,
+.welcome .service-box h3 span,
+.testi-address,
+.sidebar-menu li a:hover, 
+.sidebar-menu li.active > a,
+.product-summary .sale-price,
+.product-summary .stock strong,
+.copyright a:hover,
+.sidebar-menu li:hover:before, 
+.sidebar-menu li.active:before, 
+.sidebar-menu > ul > li.opend:before,
+.callout-box.cb-icon > i,
+.li-standard.l-arrow li:after,
+.li-standard.l-dot li:after,
+.li-standard.l-number.only-number li:before,
+.li-standard.l-star li:after,
+.wr-main-menu li.mega-menu li a:hover, 
+.wr-main-menu li.mega-menu li a:hover i,
+.testimonial-3 .testi-address,
+.testi-author,
+.why-services li:before,
+.service-box:hover h3 a,
+.blog-slider a,
+.wr-slider .bx-wrapper .bx-controls-direction a:hover,
+.cd-user-modal-container .cd-switcher a.selected,
+.cd-form-bottom-message a:hover,
+.custom-header .wr-top-header,
+.custom-header .top-menu li.cart a,
+.custom-header .contact-header h3 a,
+.custom-header .wr-main-menu .sub-menu li:hover a,
+.custom-header .wr-main-menu li.mega-menu li a:hover, 
+.custom-header .wr-main-menu li.mega-menu li a:hover i,
+.custom-header .wr-bot-header .wr-searchbox:before,
+.owl-buttons > div:hover,
+.wr-wrapper-v4 .wr-blog-article .bx-wrapper .bx-controls-direction a:hover:before,
+#sale-popup h3{
+	color: #786d5b;
+}
+.custom-header .wr-main-menu > ul > li.active > a,
+.custom-header .wr-main-menu > ul > li > a:hover{
+	color: #786d5b !important;
+}
+.wr-main-menu > ul > li > a,
+.blog-list .read-more:hover,
+span.dropcap2{
+	color:#50493d;
+}
+
+/*== BORDER ==*/
+.social-counter:hover .icon:before,
+.panel-group .action,
+.testimonial.style2 .testi-content,
+.tab-control a.active, 
+.tab-control a:hover,
+.in-divider.bold-color,
+blockquote.style3,
+.testimonial-3 .tabs-content,
+.services-page .service-box .icon:before,
+.service-box .icon:before,
+.service-box.small-box .icon:before,
+.wr-static .service-box .icon:before,
+.custom-header .wr-top-header,
+.custom-header .wr-main-menu > ul > li.active > a{
+	border-color:#786d5b;
+}

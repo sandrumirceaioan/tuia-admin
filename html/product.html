@@ -1,0 +1,61 @@
+<div id="wr-main">
+            <div class="container">
+                <div class="row">
+                	<section id="content" class="col-md-9">
+                        <div class="images-product">
+                            <a id="large-img" class="fancybox-media" href="/images/products/{{_SINGLE_PRODUCT_IMAGE}}"><img src="/images/products/{{_SINGLE_PRODUCT_IMAGE}}" alt="{{_SINGLE_PRODUCT_IMAGE}}" title="{{_SINGLE_PRODUCT_IMAGE}}"></a>
+                            <!--
+			    <div class="thumb-slider">
+                            	<ul>
+				    {{_SINGLE_PRODUCT_IMAGES}}
+                                </ul>
+			    </div>-->
+                        </div><!-- end images product -->
+
+                        <div class="product-summary">
+                            <h1>{{_SINGLE_PRODUCT_TITLE}}</h1>
+                            <div class="star-rating">
+                                <span style="width:85%">
+                                    <strong class="rating" itemprop="ratingValue">4.90</strong>
+                                    out of 5
+                                </span>
+                            </div>
+                            <p class="price">
+                                <span class="sale-price">{{_SINGLE_PRODUCT_PRICE}} Lei</span>
+                                <span class="regular-price">({{_SINGLE_PRODUCT_OLDPRICE}} Lei)</span>
+                            </p>
+                            <p class="stock">Disponibilitate: <strong>{{_SINGLE_PRODUCT_STOCK}}</strong></p>
+                            <div itemprop="description">
+                                <p>{{_SINGLE_PRODUCT_SHORTDESCRIPTION}}</p>
+                            </div>
+
+			    {{_SINGLE_PRODUCT_ADDTOCART}}
+
+
+
+                        </div><!-- end product summary -->
+                        <div class="clear"></div>
+                    </section><!-- end content -->
+
+                    <section id="sidebar" class="sidebar left-sidebar col-md-3">
+                        <div class="box-sidebar categories sidebar-menu">
+                            <h3 class="widget-title">Descriere</h3>
+				    {{_SINGLE_PRODUCT_DESCRIPTION}}
+                        </div><!-- end box sidebar -->
+                    </section><!-- end left sidebar -->
+
+                </div><!-- end row -->
+            </div><!-- end container -->
+
+            <section class="wr-breadcrumb">
+            	<div class="container">
+                	<ul class="crumb">
+                    	<li><a href="/">Acasa</a></li>
+                    </ul>
+
+                    <ul class="social-bar">
+                    	<li><a href="https://www.facebook.com/pages/tuiasmaragdro/187681678087588" target="_blank"><i class="fa fa-facebook"></i><span>Facebook</span></a></li>
+                    </ul>
+                </div>
+            </section><!-- end breadcrumd -->
+        </div><!-- end main -->

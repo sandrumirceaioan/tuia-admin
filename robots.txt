@@ -1,0 +1,23 @@
+User-agent: *
+
+#Disallow: /admin/
+#Disallow: /newadmin/
+#Disallow: /css/
+#Disallow: /build/
+#Disallow: /fonts/
+#Disallow: /html/
+#Disallow: /images/
+#Disallow: /js/
+#Disallow: /old/
+#Disallow: /404.php
+#Disallow: /add-remove.php
+#Disallow: /delete.php
+#Disallow: /order.php
+#Disallow: /newsletter.php
+#Disallow: /process-order.php
+#Disallow: /cart.php
+#Disallow: /style.css
+#Disallow: /connect.php
+#Disallow: /type.php
+
+

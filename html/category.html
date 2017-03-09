@@ -1,0 +1,85 @@
+<div id="wr-main">
+<script src="js/jquery-1.10.1.min.js"></script>
+        	<section class="wr-banner">
+                <div class="container">
+                    {{_CATEGORY_DESCRIPTION}}
+                </div>
+            </section><!-- end slider -->
+            
+            <div class="container">
+                <div class="row">                    
+                    <section id="content" class="col-md-9">
+                    	<ul class="products products-grid">                      
+
+				{{_CATEGORY_ITEMS}}                            
+
+                        </ul><!-- end products -->
+                        <div class="clear"></div>
+                        
+                    </section><!-- end content -->
+                    
+                    <section id="sidebar" class="sidebar left-sidebar col-md-3">
+                        <div class="box-sidebar categories sidebar-menu">
+				{{_CATEGORY_SHORTDESCRIPTION}}
+                        </div><!-- end box sidebar -->
+                    </section><!-- end left sidebar -->
+                </div><!-- end row -->
+            </div><!-- end container -->
+            
+            <section class="wr-breadcrumb">
+            	<div class="container">
+                	<ul class="crumb">
+                    	<li><a href="/">Home</a></li>
+                    </ul>
+                    
+                    <ul class="social-bar">
+                    	<li><a href="https://www.facebook.com/pages/tuiasmaragdro/187681678087588" target="_blank"><i class="fa fa-facebook"></i><span>Facebook</span></a></li>
+                    </ul>
+                </div>
+            </section><!-- end breadcrumd -->
+        </div><!-- end main -->
+	
+	
+	
+<script>
+jQuery(document).ready(function() {
+// process the form
+jQuery(".for_ajax").click(function(event) {
+event.preventDefault();
+jQuery.ajax({
+                url: "/cart.php",
+                dataType: "json",
+                type: "POST",
+                data: { pid: jQuery(this).prev().val(),
+                        qty: jQuery(this).next().val()
+                },        
+                success: function(data) {                       
+                    
+                    if (data.success == true) {
+                        
+                        //successfully added to cart
+                        jQuery(".coverall").show();
+                        jQuery(".message_cart").append("<i class=\"fa fa-check-circle\"></i><p>" + data.message + "</p>");
+                        jQuery(".message_cart").append("<a href=\"/cart\">Cos de cumparaturi</a><a class=\"exit_pop\">Continua cumparaturile</a>");
+                        jQuery(".message_cart").fadeIn();
+                        
+                        //continue shopping
+                        jQuery(".exit_pop, .coverall").click(function(){
+                        jQuery(".message_cart").fadeOut();
+                        jQuery(".message_cart").empty();
+                        jQuery(".coverall").hide();
+                        jQuery(".buy-now-btn").css("display","block");
+                        });
+                     
+                   } else {
+                   
+                        alert (data.errors.qty);
+                        
+                   }
+                        
+                } 
+                
+            });
+});
+});
+</script>

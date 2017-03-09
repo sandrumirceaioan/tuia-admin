@@ -1,0 +1,149 @@
+<footer id="wr-footer">
+		<script src="/js/jquery-1.10.1.min.js"></script>
+        	<div class="wr-top-footer">
+            	<div class="container">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6 footer-item">
+                            <div class="widget">
+                            	<img src="/images/logo-tuia-small.png" alt="" style="float: left; margin: 0 10px 0 0;">
+				<div class="clear"></div>
+                            </div>
+                        </div><!-- end footer item -->
+
+			<div class="col-md-3">
+				<div class="widget">
+				<h3>Contact</h3>
+                            	<p><strong>
+                                    Tel: 0747.929.875<br />
+                                    Email: contact@tuiasmaragd.ro<br />
+				    Dumbraveni, Sibiu, Romania
+                              	</strong></p>
+                            </div>
+			</div>
+
+                        <div class="col-md-6 col-sm-6 footer-item">
+                            <div class="widget newsletter">
+                            	<h3>Aboneaza-te</h3>
+                            	<p>Nu rata noutatile despre plantarea, ingrijirea sau intrebuintarea speciei Thuja Smaragd:</p>
+                                <form id="newsletter" action="" method="post">
+				        <input type="hidden" name="place" value="footer">
+                                	<input type="text" name="email" placeholder="Adresa de email" title="Adresa de email!">
+                                    <input type="submit" value="Aboneaza-te">
+                                </form>
+				<div class="msgn" style="display:none;"></div>
+                            </div>
+                        </div><!-- end footer item -->
+
+                    </div><!-- end row -->
+                </div><!-- end container -->
+            </div><!-- end wr-top-footer -->
+
+<script>
+jQuery(document).ready(function() {
+// process the form
+jQuery("#newsletter").submit(function(event) {
+event.preventDefault();
+jQuery.ajax({
+                url: "/newsletter.php",
+                type: "POST",
+                data: { email: jQuery("form#newsletter input[name=email]").val(),
+		        place: jQuery("form#newsletter input[name=place]").val()
+                },
+                success: function(data) {
+
+                    if (data == 'ok') {
+
+				jQuery('.msgn').html("<p style=\"color:#008000;\">Inregistrare reusita!</p>");
+				jQuery('.msgn').fadeIn();
+
+				setTimeout(function(){
+				jQuery('.msgn').slideToggle();
+				jQuery('.msgn').empty();
+				}, 5000);
+
+				jQuery('#newsletter')[0].reset();
+
+                   } else if (data == 'not') {
+
+				jQuery('.msgn').html("<p style=\"color:#cc0000;\">Eroare inregistrare!</p>");
+				jQuery('.msgn').fadeIn();
+
+				setTimeout(function(){
+				jQuery('.msgn').slideToggle();
+				jQuery('.msgn').empty();
+				}, 5000);
+
+				jQuery('#newsletter')[0].reset();
+
+                   } else if (data == 'err') {
+
+				jQuery('.msgn').html("<p style=\"color:#cc0000;\">Email gresit! Incearca din nou.</p>");
+				jQuery('.msgn').fadeIn();
+
+				setTimeout(function(){
+				jQuery('.msgn').slideToggle();
+				jQuery('.msgn').empty();
+				}, 2000);
+
+				jQuery('#newsletter')[0].reset();
+
+                   }
+
+                }
+
+            });
+});
+});
+</script>
+
+
+            <div class="wr-bot-footer">
+            	<div class="container">
+                    <p class="copyright">Tuia Smaragd &copy; 2015</p>
+                    <a href="/cart" class="buy-now-btn">
+						<i class="fa fa-shopping-cart"></i> Cumpara
+					</a>
+                    <span class="payments-cart">www.tuiasmaragd.ro ( <a href="/html/sitemap.htm">Sitemap</a> )</span>
+                </div>
+            </div><!-- end bot footer -->
+        </footer>
+    </div><!-- end wrapper -->
+
+    <!-- jQuery -->
+    <!-- jQuery UI -->
+    <script src="/js/jquery-ui/jquery-ui.min.js"></script>
+    <!-- jQuery menu mobile -->
+    <script src="/js/jquery.mmenu.min.all.js"></script>
+    <!-- Header sticky -->
+    <script src="/js/waypoints.min.js"></script>
+    <!-- Login and register -->
+    <script src="/js/modernizr.js"></script>
+    <script src="/js/login-signup.js"></script>
+    <!-- Parallax -->
+    <script src="/js/stellar.js"></script>
+    <!-- isotope -->
+    <script src="/js/isotope.pkgd.min.js"></script>
+    <!-- Couter Up -->
+    <script src="/js/jquery.counterup.min.js"></script>
+	<!-- Flipclock -->
+    <script src="/js/flipclock.js"></script>
+	<!-- Responsive table -->
+    <script src="/js/responsive-table/responsive-tables.js"></script>
+    <!-- Revolution slider -->
+    <script src="/js/jquery.themepunch.plugins.min.js"></script>
+    <script src="/js/jquery.themepunch.revolution.min.js"></script>
+	<!-- Owl carousel slider -->
+    <script src="/js/owl.carousel.js"></script>
+	<!-- Bxslider -->
+    <script src="/js/bxslider/jquery.bxslider.min.js"></script>
+    <!-- Fancybox -->
+    <script src="/js/fancybox/jquery.fancybox.js"></script>
+    <script src="/js/fancybox/helpers/jquery.fancybox-media.js"></script>
+    <!-- Style Switch -->
+    <script src="/js/styleswitch.js"></script>
+    <!-- Main script -->
+    <script src="/js/script.js"></script>
+</body>
+<div class="coverall"></div>
+<div class="message_cart"></div>
+</html>
