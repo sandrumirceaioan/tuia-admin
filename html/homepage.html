@@ -1,0 +1,134 @@
+<div id="wr-main">
+		<script src="js/jquery-1.10.1.min.js"></script>
+		<section class="wr-banner homebanner">
+		<div class="container">
+                {{_HOMEPAGE_DESCRIPTION}}
+                </div>
+		</section><!-- end slider -->
+
+		<div class="container">
+                	<ul class="products products-grid">
+                    	
+			{{_HOMEPAGE_ITEMS}}
+			
+		        </ul>
+		</div>
+
+
+            
+            <section class="wr-our-services">
+            	<div class="container">
+		<div class="row home-box">
+                    <div class="col-md-4 col-sm-4">
+                        <div class="service-box unbox unline icon-left large-icon">
+                            <div class="icon">
+                                <i class="fa fa-info-circle"></i>
+                            </div>                               
+                            <div class="service-box-content">
+                                <h3>Informatii Utile</h3>
+                        		<p>Aboneaza-te si citeste blogul nostru pentru a fi la curent cu noile informatii si sfaturile practice, utile pentru cresterea si ingrijirea exemplarelor de Thuja Occidentalis Smaragd. <a href="/blog">Vezi Blog</a></p>
+                            </div>
+                        </div><!-- end service box -->
+                    </div>
+                    
+                    <div class="col-md-4 col-sm-4">
+                        <div class="service-box unbox unline icon-left large-icon">
+                            <div class="icon">
+                                <i class="fa fa-shopping-cart"></i>
+                            </div>                                
+                            <div class="service-box-content">
+                                <h3>Preturi Tuia Smaragd</h3>
+                        		<p>In Romania a fost introdusa in scop ornamental. Specia Thuja Occ. Smaragd (Tuia Smaragd) destinata vanzarii este perfect adaptata  la conditiile climatice din Romania. <a href="/produse">Vezi preturile</a></p>
+                            </div>
+                        </div><!-- end service box -->
+                    </div>
+                    
+                    <div class="col-md-4 col-sm-4">
+                        <div class="service-box unbox unline icon-left large-icon">
+                            <div class="icon">
+                                <i class="fa fa-truck"></i>
+                            </div>                                
+                            <div class="service-box-content">
+                                <h3>Livrare Tuia Smaragd</h3>
+                        		<p>Livrarea puietilor de Thuja Occidentalis Smaragd se va face cu ajutorul serviciilor de curierat, cu exceptia cazurilor in care comenzile sunt foarte mari. <a href="/contact">Mai multe detalii</a></p>
+                            </div>
+                        </div><!-- end service box -->
+                    </div>
+                </div><!-- end row -->
+                </div><!-- end container -->
+            </section><!-- end wr our services -->
+                     
+                        
+            <section class="wr-latest-blog">
+            	<div class="container">
+                    
+                    <div class="row">
+
+		          {{_HOMEPAGE_BLOG_ITEMS}}
+		    
+		    </div><!-- end row -->
+                </div><!-- end container -->
+            </section><!-- end latest blog -->
+
+
+            
+            <section class="wr-breadcrumb">
+            	<div class="container">
+                	<ul class="crumb">
+                    	<li><a href="/">Home</a></li>
+                    </ul>
+                    
+                    <ul class="social-bar">
+                    	<li><a href="https://www.facebook.com/pages/tuiasmaragdro/187681678087588" target="_blank"><i class="fa fa-facebook"></i><span>Facebook</span></a></li>
+
+                    </ul>
+                </div>
+            </section><!-- end breadcrumd -->
+        </div><!-- end main -->
+	
+<script>
+jQuery(document).ready(function() {
+// process the form
+jQuery(".for_ajax").click(function(event) {
+event.preventDefault();
+jQuery.ajax({
+                url: "/cart.php",
+                dataType: "json",
+                type: "POST",
+                data: { pid: jQuery(this).prev().val(),
+                        qty: jQuery(this).next().val()
+                },        
+                success: function(data) {                       
+                    
+                    if (data.success == true) {
+                        
+                        //successfully added to cart
+                        jQuery(".coverall").show();
+                        jQuery(".message_cart").append("<i class=\"fa fa-check-circle\"></i><p>" + data.message + "</p>");
+                        jQuery(".message_cart").append("<a href=\"/cart\">Cos de cumparaturi</a><a class=\"exit_pop\">Continua cumparaturile</a>");
+                        jQuery(".message_cart").fadeIn();
+                        
+                        //continue shopping
+                        jQuery(".exit_pop, .coverall").click(function(){
+                        jQuery(".message_cart").fadeOut();
+                        jQuery(".message_cart").empty();
+                        jQuery(".coverall").hide();
+                        jQuery(".buy-now-btn").css("display","block");
+                        });
+                     
+                   } else {
+                   
+                        alert (data.errors.qty);
+                        
+                   }
+                        
+                } 
+                
+            });
+});
+});
+</script>
+
+	
+	
+	

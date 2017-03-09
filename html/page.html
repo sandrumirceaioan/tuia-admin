@@ -1,0 +1,87 @@
+<div id="wr-main">
+<script src="js/jquery-1.10.1.min.js"></script>   
+    {{_PAGE_CONTENT}}
+            
+            <section class="wr-breadcrumb">
+            	<div class="container">
+                	<ul class="crumb">
+                    	<li><a href="/">Acasa</a></li>
+                    </ul>
+                    
+                    <ul class="social-bar">
+                    	<li><a href="https://www.facebook.com/pages/tuiasmaragdro/187681678087588" target="_blank"><i class="fa fa-facebook"></i><span>Facebook</span></a></li>
+                    </ul>
+                </div>
+            </section><!-- end breadcrumd -->
+        </div><!-- end main -->
+	
+<script>
+jQuery(document).ready(function() {
+// process the form
+jQuery("#contactform").submit(function(event) {
+event.preventDefault();
+jQuery.ajax({
+                url: "contact.php",
+                type: "POST",
+                data: { cname: jQuery("form#contactform input[name=cname]").val(),
+                        cemail: jQuery("form#contactform input[name=cemail]").val(),
+			ctarea:jQuery("form#contactform textarea[name=ctarea]").val()
+		},
+                success: function(data) {                       
+                    
+                    if (data == 'ok') {
+				
+				jQuery('.msgn').html("<p style=\"color:#008000;\">Inregistrare reusita!</p>");
+				jQuery('.msgn').fadeIn();
+				
+				setTimeout(function(){
+				jQuery('.msgn').slideToggle();
+				jQuery('.msgn').empty();
+				}, 5000);
+				
+				jQuery('#newsletter')[0].reset();
+				                   
+                   } else if (data == 'no') {
+                   
+				jQuery('.msgn').html("<p style=\"color:#cc0000;\">Eroare inregistrare!</p>");
+				jQuery('.msgn').fadeIn();
+				
+				setTimeout(function(){
+				jQuery('.msgn').slideToggle();
+				jQuery('.msgn').empty();
+				}, 5000);
+				
+				jQuery('#newsletter')[0].reset();
+                        
+                   } else if (data == 'err') {
+                   
+				jQuery('.msgn').html("<p style=\"color:#cc0000;\">Email gresit! Incearca din nou.</p>");
+				jQuery('.msgn').fadeIn();
+				
+				setTimeout(function(){
+				jQuery('.msgn').slideToggle();
+				jQuery('.msgn').empty();
+				}, 2000);
+				
+				jQuery('#newsletter')[0].reset();
+                        
+                   } else if (data == 'emp') {
+                   
+				jQuery('.msgn').html("<p style=\"color:#cc0000;\">Toate campurile sunt necesare.</p>");
+				jQuery('.msgn').fadeIn();
+				
+				setTimeout(function(){
+				jQuery('.msgn').slideToggle();
+				jQuery('.msgn').empty();
+				}, 2000);
+				
+				jQuery('#newsletter')[0].reset();
+                        
+                   }
+                        
+                }
+                
+            });
+});
+});
+</script>
