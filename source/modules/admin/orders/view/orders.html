@@ -23,7 +23,7 @@
           		<td class="col-md-3">{{order.oadresa}}</td>
           		<td>{{'0' + order.otel}}</td>
           		<td>{{order.order_date}}</td>
-          		<td><a ui-sref="dashboard.order({ orderDet: order.odetail_id })" class="btn btn-default btn-block" ng-class="order.osolved == '0' ? 'btn-success' : 'class-false'"><i class="fa fa-eye"></i></a></td>
+          		<td><a ui-sref="admin.dashboard.order({orderDetails: order.odetail_id })" class="btn btn-default btn-block" ng-class="order.osolved == '0' ? 'btn-success' : 'class-false'"><i class="fa fa-eye"></i></a></td>
         		</tr>
         	</tbody>
         </table>

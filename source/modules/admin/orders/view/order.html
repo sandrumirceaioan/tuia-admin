@@ -1,0 +1,80 @@
+<div class="row inner contact">
+	   <div class="col-md-6">
+           <h4>OrderID #{{tabContent.oid}}</h4>
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <ul class="nav nav-tabs nav-tabs-custom">
+                        <li ng-repeat="tab in tabs"	data-toggle="tab" ng-click="currentTab(tab.title)" ng-class="isActiveTab(tab.title) ? 'active' : 'class-false'">
+								<a data-toggle="tab" class="btn">{{tab.title}}</a>
+                        </li>
+                    </ul>
+					<div class="tab-content sList" ng-show="currenttab == 'Customer'">
+                        <table class="table table-striped bBot">
+							<tbody>
+								<tr>
+									<td class="col-md-2">Name</td>
+									<td class="col-md-10">{{tabContent.onume + ' ' + tabContent.oprenume}}</td>
+								</tr>
+								<tr>
+									<td class="col-md-2">Phone</td>
+									<td class="col-md-10">{{"0" + tabContent.otel}}</td>
+								</tr>
+								<tr>
+									<td class="col-md-2">Email</td>
+									<td class="col-md-10">{{tabContent.oemail}}</td>
+								</tr>
+								<tr>
+									<td class="col-md-2">Address</td>
+									<td class="col-md-10">{{tabContent.oadresa}}</td>
+								</tr>
+								<tr>
+									<td class="col-md-2">City</td>
+									<td class="col-md-10">{{tabContent.ooras}}</td>
+								</tr>
+								<tr>
+									<td class="col-md-2">District</td>
+									<td class="col-md-10">{{tabContent.ojudet}}</td>
+								</tr>
+								<tr>
+									<td class="col-md-2">Date</td>
+									<td class="col-md-10">{{tabContent.order_date}}</td>
+								</tr>
+								<tr>
+									<td class="col-md-2">Status</td><td class="col-md-10">
+										<span class="text-danger" ng-show="tabContent.osolved == '0'">Nerezolvat</span>
+										<span class="text-success" ng-show="tabContent.osolved == '1'">Rezolvat</span>
+										<button ng-show="tabContent.osolved != '1'" ng-click="upStatus(tabContent.odetail_id)" type="button" class="btn btn-default"> <i class="fa fa-check-circle-o"></i></button>
+									</td>
+								</tr>
+							</tbody>
+						 </table>
+					</div>
+
+					<div class="tab-content sList" ng-show="currenttab == 'Order'">
+						<table class="table table-striped bBot">
+							<tbody>
+								<tr>
+									<td class="col-md-2">Product</td>
+									<td class="col-md-10">{{tabContent.detail_name}}</td>
+								</tr>
+								<tr>
+									<td class="col-md-2">Size</td>
+									<td class="col-md-10">{{tabContent.detail_sort}}</td>
+								</tr>
+								<tr>
+									<td class="col-md-2">Qty</td>
+									<td class="col-md-10">{{tabContent.detail_qty}}</td>
+								</tr>
+								<tr>
+									<td class="col-md-2">Total</td>
+									<td class="col-md-10">{{tabContent.detail_price + ' Lei'}}</td>
+								</tr>
+							</tbody>
+						 </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="clearfix"></div>
+</div><!-- End Inner -->
