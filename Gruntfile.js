@@ -16,6 +16,8 @@ module.exports = function(grunt) {
                     './bower_components/angular-aria/angular-aria.min.js',
                     './bower_components/angular-ui-router/release/angular-ui-router.min.js',
                     './bower_components/underscore/underscore-min.js',
+                    './bower_components/angular-datatables/dist/angular-datatables.min.js',
+                    './bower_components/angular-datatables/dist/plugins/bootstrap/angular-datatables.bootstrap.min.js',
                     './bower_components/angular-underscore-module/angular-underscore-module.js',
                     './bower_components/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js',
                     './bower_components/angular-bootstrap-slider/slider.js',
@@ -44,6 +46,7 @@ module.exports = function(grunt) {
                     './bower_components/textAngular/dist/textAngular.css',
                     './bower_components/ngtoast/dist/ngToast-animations.min.css',
                     './bower_components/angular-datatables/dist/css/angular-datatables.min.css',
+                    './bower_components/angular-datatables/dist/plugins/bootstrap/datatables.bootstrap.min.css',
                     './bower_components/ng-notify/dist/ng-notify.min.css',
                     './bower_components/ng-tags-input/ng-tags-input.min.css'
                 ],

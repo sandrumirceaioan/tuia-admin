@@ -2,7 +2,7 @@
 		<div id="sidebar-wrapper" ng-class="collapse === true ? 'col-lg-12 col-md-12 col-sm-12' : 'col-lg-2 col-md-2 col-sm-2'">
                 <div class="adminHeader">
                     <a href="#/" class="viewBlog">
-        				<img src="/tuiasmaragd/manage/assets/{{header.image}}" class="admLoggedLogo">
+        				<img src="/tuiasmaragd/manage/assets/{{header.image}}" class="admLoggedLogo" alt="{{header.description}}" title="{{header.title}}">
 			        </a>
                     <a class="menu-bars" class="trans-all" href="" ng-hide="collapse" ng-click="collapse = !collapse">
                         <i class="fa fa-arrow-right" aria-hidden="true"></i>
@@ -13,7 +13,7 @@
                     <div class="clearfix"></div>
 			</div>
             <ul class="sidebar-nav" ng-class="collapse === true ? 'hideMenu' : ''">
-                <admin-sidebar obj="sidebarItems" cstate="currentState"></admin-sidebar>
+                <admin-sidebar></admin-sidebar>
 				<li><a href="" ng-click="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
             </ul>
         </div>
