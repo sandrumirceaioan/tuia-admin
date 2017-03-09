@@ -3,6 +3,8 @@
 
 angular.module('tuia', [
 	'ui.bootstrap',
+  'datatables',
+  'datatables.bootstrap',
  	'ui.router',
 	'templates-main',
 	'ngNotify',
@@ -12,14 +14,14 @@ angular.module('tuia', [
     'admin',
     'admin-container',
     'admin-dashboard',
-    'admin-login'
+    'admin-login',
+    'admin-orders'
 	])
 	.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
 
 		$locationProvider.hashPrefix('');
 		$urlRouterProvider.otherwise('/login');
 		$locationProvider.html5Mode(false);
-
 
 }])
 

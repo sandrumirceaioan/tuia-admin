@@ -16,8 +16,8 @@
         };
 
         $scope.header = {
-            title: "Blog Title",
-            description: "Blog Description Here",
+            title: "Tuia Smaragd Admin",
+            description: "Tuia Smaragd Admin Dashboard",
             image: "admin_logo.png"
         };
 
