@@ -106,8 +106,10 @@
     border-radius:0px;
 }
 
-.header-breadcrumb span, .header-breadcrumb a:hover{color:#ff3737;}
+.header-breadcrumb span{color:#d8d8d8;}
+.header-breadcrumb span:hover{color:#26bd00;}
 .header-breadcrumb a{color:#d8d8d8;}
+.header-breadcrumb span i{color:#26bd00;}
 
 
 /* categories */
@@ -508,3 +510,18 @@ tags-input .tags .input {
         border-bottom: 0px solid !important;
         background: none !important;
     }
+
+    .new-orders {
+      background: #26bd00;
+      color: #fff;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 1px 6px;
+      float: right;
+      border-radius: 15px;
+    }
+
+.green-icon {
+  color: #26bd00;
+  padding-right: 5px;
+}

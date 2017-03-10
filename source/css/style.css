@@ -138,13 +138,14 @@
 }
 
 .sidebar-nav li a {
-    padding: 10px 10px 10px 10px;
-    width: 100%;
-    display: block;
-    text-decoration: none;
-    background: #444444;
-    color: #ffffff;
-    border-bottom: #ffffff;
+  padding: 10px;
+  width: 100%;
+  display: block;
+  text-decoration: none;
+  background: #444;
+  color: #fff;
+  border-bottom: 1px solid #000000;
+  border-top: 1px solid #5a5a5a;
 }
 
 .sidebar-nav li a:hover{
