@@ -35,5 +35,15 @@
                     return $q.reject(error);
                 });
         };
+        this.getNewOrdersCount = function(){
+            return $http({
+                    method: 'POST',
+                    url: '/tuiasmaragd/routes/getNewOrders.php'
+                }).then(function(result){
+                    return result.data;
+                }).catch(function(error){
+                    return $q.reject(error);
+                });
+        };
     }
 })();

@@ -1,7 +1,7 @@
 (function(){
     angular.module('admin-orders').controller('orderCtrl', orderCtrl);
-    orderCtrl.$inject = ['$scope', 'ngNotify', 'orders', 'oneOrd'];
-    function orderCtrl($scope, ngNotify, orders, oneOrd){
+    orderCtrl.$inject = ['$scope', '$rootScope', 'ngNotify', 'orders', 'oneOrd'];
+    function orderCtrl($scope, $rootScope, ngNotify, orders, oneOrd){
 
         	$scope.tabContent = oneOrd;
         	$scope.currenttab = "Customer";
@@ -28,6 +28,7 @@
         	$scope.upStatus = function(id){
         		orders.updateOneOrder({order:id}).then(function(result){
         			$scope.tabContent.osolved = '1';
+              $rootScope.newOrders--;
                     var scc = JSON.parse(result);
                     ngNotify.set(scc.success, {
                         theme: 'pure',

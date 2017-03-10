@@ -4,24 +4,39 @@
                     <a href="#/" class="viewBlog">
         				<img src="/tuiasmaragd/manage/assets/{{header.image}}" class="admLoggedLogo" alt="{{header.description}}" title="{{header.title}}">
 			        </a>
-                    <a class="menu-bars" class="trans-all" href="" ng-hide="collapse" ng-click="collapse = !collapse">
+                    <a class="menu-bars" class="trans-all" href="" ng-hide="collapse" ng-click="changeMenu(collapse)">
                         <i class="fa fa-arrow-right" aria-hidden="true"></i>
                     </a>
-                    <a class="menu-bars" class="trans-all" href="" ng-show="collapse" ng-click="collapse = !collapse">
+                    <a class="menu-bars" class="trans-all" href="" ng-show="collapse" ng-click="changeMenu(collapse)">
 						<i class="fa fa-arrow-left" aria-hidden="true"></i>
                     </a>
                     <div class="clearfix"></div>
 			</div>
             <ul class="sidebar-nav" ng-class="collapse === true ? 'hideMenu' : ''">
                 <admin-sidebar></admin-sidebar>
-				<li><a href="" ng-click="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+				<li><a href="" ng-click="logout()"><span class="green-icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span> Logout</a></li>
             </ul>
         </div>
         <div id="page-content-wrapper" ng-class="collapse === true ? 'col-lg-12 col-md-12 col-sm-12' : 'col-lg-10 col-md-10 col-sm-10'">
 			<div class="header-breadcrumb" ncy-breadcrumb ng-class="collapse === true ? 'col-lg-2 col-md-2 col-sm-2' : ''"></div>
             <div class="collapsed-menu" ng-show="collapse" ng-class="collapse === true ? 'col-lg-10 col-md-10 col-sm-10 header-breadcrumb' : ''">
-                <div ng-repeat="item in sidebarItems" ng-show="collapse" class="collapsed-menu">
-                    <a ui-sref="{{item.itemUrl}}"> <span ng-bind-html="item.itemIcon"></span> {{item.itemTitle}}</a>
+                <div class="collapsed-menu">
+                    <a href="" ng-click="logout()"><span class="green-icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span> Logout</a>
+                </div>
+                <div class="collapsed-menu">
+                    <a ui-sref="admin.dashboard.blog"> <span class="green-icon"><i class="fa fa-rss" aria-hidden="true"></i></span> Blog</a>
+                </div>
+                <div class="collapsed-menu">
+                    <a ui-sref="admin.dashboard.orders"> <span class="green-icon"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span> Orders</a>
+                </div>
+                <div class="collapsed-menu">
+                    <a ui-sref="admin.dashboard.products"> <span class="green-icon"><i class="fa fa-tree" aria-hidden="true"></i></span> Products</a>
+                </div>
+                <div class="collapsed-menu">
+                    <a ui-sref="admin.dashboard.messages"> <span class="green-icon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span> Messages</a>
+                </div>
+                <div class="collapsed-menu">
+                    <a ui-sref="admin.dashboard.home"> <span class="green-icon"><i class="fa fa-tachometer" aria-hidden="true"></i></span> Dashboard</a>
                 </div>
             </div>
             <div class="clearfix"></div>

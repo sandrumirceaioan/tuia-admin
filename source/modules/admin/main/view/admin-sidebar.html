@@ -1,7 +1,5 @@
-<li>
-     <a ui-sref="admin.dashboard.home"> <span><i class="fa fa-tachometer" aria-hidden="true"></i></span> Dashboard</a>
-     <a ui-sref="admin.dashboard.messages"> <span><i class="fa fa-envelope-o" aria-hidden="true"></i></span> Messages</a>
-     <a ui-sref="admin.dashboard.products"> <span><i class="fa fa-tree" aria-hidden="true"></i></span> Products</a>
-     <a ui-sref="admin.dashboard.orders"> <span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span> Orders</a>
-     <a ui-sref="admin.dashboard.blog"> <span><i class="fa fa-rss" aria-hidden="true"></i></span> Blog</a>
-</li>
+<li><a ui-sref="admin.dashboard.home"> <span class="green-icon"><i class="fa fa-tachometer" aria-hidden="true"></i></span> Dashboard</a></li>
+<li><a ui-sref="admin.dashboard.messages"> <span class="green-icon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span> Messages</a></li>
+<li><a ui-sref="admin.dashboard.products"> <span class="green-icon"><i class="fa fa-tree" aria-hidden="true"></i></span> Products</a></li>
+<li><a ui-sref="admin.dashboard.orders"> <span class="green-icon"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span> Orders <span class="new-orders" ng-if="newOrders && newOrders > 0">{{newOrders}}</span></a></li>
+<li><a ui-sref="admin.dashboard.blog"> <span class="green-icon"><i class="fa fa-rss" aria-hidden="true"></i></span> Blog</a></li>

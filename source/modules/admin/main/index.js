@@ -33,6 +33,13 @@
                         }).catch(function(error){
                             $state.go('admin.login');
                         });
+                    },
+                    newOrd: function($q, orders){
+                        return orders.getNewOrdersCount().then(function(result){
+                            return result.ord;
+                        }).catch(function(error){
+                            return $q.reject(error);
+                        });
                     }
                 }
             });
