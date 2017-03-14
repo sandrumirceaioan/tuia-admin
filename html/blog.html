@@ -1,116 +1,116 @@
- <div id="wr-main" class="blog-list-page">
-    <script src="/js/jquery-1.10.1.min.js"></script>
-            <div class="container">
-                <div class="row">                    
-                    <section id="content" class="col-md-9">
-                        	
-                                {{_BLOG_CONTENT}}
-                                
-                        <!--
-                        <div class="pagination blog-medium-img-pagination">
-                            <ul>
-                            	<li><a href="#"><i class="fa fa-angle-left"></i></a></li>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                            </ul>
-                            <div class="clear"></div>
-                        </div>-->
-                    </section><!-- end content -->
-                    
-                    <section id="sidebar" class="sidebar right-sidebar col-md-3">
-                        <div class="box-sidebar sidebar-menu blog-categories">
-                            <h3 class="widget-title">Ultimele Postari</h3>
-                            <ul>
-                                {{_RECENT_POSTS}}
-                            </ul>
-                        </div><!-- end box sidebar -->
-                                              
-                        <div class="box-sidebar rss-subcribe">
-                            <h3 class="widget-title">Aboneaza-te</h3>
-                            <p>Nu rata noutatile despre plantarea, ingrijirea sau intrebuintarea speciei Thuja Smaragd:</p>
-                            <form id="newsletter2" action="" method="post">
-                                <input type="hidden" name="place" value="blog">
-                                <p><input type="email" name="email" placeholder="Adresa de email!"></p>
-                                <input type="submit" value="Aboneaza-te">
-                            </form>
-                            <div class="msgn2" style="display:none;"></div>
-                        </div><!-- end box sidebar -->
-                        
-                    </section><!-- end right sidebar -->
-                </div><!-- end row -->
-            </div><!-- end container -->
-            
-            <section class="wr-breadcrumb">
-            	<div class="container">
-                	<ul class="crumb">
-                    	<li><a href="/">Acasa</a></li>
-                    </ul>
-                    
-                    <ul class="social-bar">
-                        <li><a href="https://www.facebook.com/pages/tuiasmaragdro/187681678087588" target="_blank"><i class="fa fa-facebook"></i><span>Facebook</span></a></li>
-                    </ul>
-                </div>
-            </section><!-- end breadcrumd -->
-        </div><!-- end main -->
-
-<script>
-jQuery(document).ready(function() {
-// process the form
-jQuery("#newsletter2").submit(function(event) {
-event.preventDefault();
-jQuery.ajax({
-                url: "/newsletter.php",
-                type: "POST",
-                data: { email: jQuery("form#newsletter2 input[name=email]").val(),
-		        place: jQuery("form#newsletter2 input[name=place]").val()
-                },        
-                success: function(data) {                       
-                    
-                    if (data == 'ok') {
-				
-				jQuery('.msgn2').html("<p style=\"color:#008000;\">Inregistrare reusita!</p>");
-				jQuery('.msgn2').fadeIn();
-                                
-				
-				setTimeout(function(){
-				jQuery('.msgn2').slideToggle();
-				jQuery('.msgn2').empty();
-				}, 5000);
-				
-				jQuery('#newsletter2')[0].reset();
-				                   
-                   } else if (data == 'not') {
-                   
-				jQuery('.msgn2').html("<p style=\"color:#cc0000;\">Eroare inregistrare!</p>");
-				jQuery('.msgn2').fadeIn();
-				
-				setTimeout(function(){
-				jQuery('.msgn2').slideToggle();
-				jQuery('.msgn2').empty();
-				}, 5000);
-				
-				jQuery('#newsletter2')[0].reset();
-                        
-                   } else if (data == 'err') {
-                   
-				jQuery('.msgn2').html("<p style=\"color:#cc0000;\">Email gresit! Incearca din nou.</p>");
-				jQuery('.msgn2').fadeIn();
-				
-				setTimeout(function(){
-				jQuery('.msgn2').slideToggle();
-				jQuery('.msgn2').empty();
-				}, 2000);
-				
-				jQuery('#newsletter2')[0].reset();
-                        
-                   }
-                        
-                } 
-                
-            });
-});
-});
+ <div id="wr-main" class="blog-list-page">
+    <script src="/js/jquery-1.10.1.min.js"></script>
+            <div class="container">
+                <div class="row">                    
+                    <section id="content" class="col-md-9">
+                        	
+                                {{_BLOG_CONTENT}}
+                                
+                        <!--
+                        <div class="pagination blog-medium-img-pagination">
+                            <ul>
+                            	<li><a href="#"><i class="fa fa-angle-left"></i></a></li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                            </ul>
+                            <div class="clear"></div>
+                        </div>-->
+                    </section><!-- end content -->
+                    
+                    <section id="sidebar" class="sidebar right-sidebar col-md-3">
+                        <div class="box-sidebar sidebar-menu blog-categories">
+                            <h3 class="widget-title">Ultimele Postari</h3>
+                            <ul>
+                                {{_RECENT_POSTS}}
+                            </ul>
+                        </div><!-- end box sidebar -->
+                                              
+                        <div class="box-sidebar rss-subcribe">
+                            <h3 class="widget-title">Aboneaza-te</h3>
+                            <p>Nu rata noutatile despre plantarea, ingrijirea sau intrebuintarea speciei Thuja Smaragd:</p>
+                            <form id="newsletter2" action="" method="post">
+                                <input type="hidden" name="place" value="blog">
+                                <p><input type="email" name="email" placeholder="Adresa de email!"></p>
+                                <input type="submit" value="Aboneaza-te">
+                            </form>
+                            <div class="msgn2" style="display:none;"></div>
+                        </div><!-- end box sidebar -->
+                        
+                    </section><!-- end right sidebar -->
+                </div><!-- end row -->
+            </div><!-- end container -->
+            
+            <section class="wr-breadcrumb">
+            	<div class="container">
+                	<ul class="crumb">
+                    	<li><a href="/">Acasa</a></li>
+                    </ul>
+                    
+                    <ul class="social-bar">
+                        <li><a href="https://www.facebook.com/pages/tuiasmaragdro/187681678087588" target="_blank"><i class="fa fa-facebook"></i><span>Facebook</span></a></li>
+                    </ul>
+                </div>
+            </section><!-- end breadcrumd -->
+        </div><!-- end main -->
+
+<script>
+jQuery(document).ready(function() {
+// process the form
+jQuery("#newsletter2").submit(function(event) {
+event.preventDefault();
+jQuery.ajax({
+                url: "/newsletter.php",
+                type: "POST",
+                data: { email: jQuery("form#newsletter2 input[name=email]").val(),
+		        place: jQuery("form#newsletter2 input[name=place]").val()
+                },        
+                success: function(data) {                       
+                    
+                    if (data == 'ok') {
+				
+				jQuery('.msgn2').html("<p style=\"color:#008000;\">Inregistrare reusita!</p>");
+				jQuery('.msgn2').fadeIn();
+                                
+				
+				setTimeout(function(){
+				jQuery('.msgn2').slideToggle();
+				jQuery('.msgn2').empty();
+				}, 5000);
+				
+				jQuery('#newsletter2')[0].reset();
+				                   
+                   } else if (data == 'not') {
+                   
+				jQuery('.msgn2').html("<p style=\"color:#cc0000;\">Eroare inregistrare!</p>");
+				jQuery('.msgn2').fadeIn();
+				
+				setTimeout(function(){
+				jQuery('.msgn2').slideToggle();
+				jQuery('.msgn2').empty();
+				}, 5000);
+				
+				jQuery('#newsletter2')[0].reset();
+                        
+                   } else if (data == 'err') {
+                   
+				jQuery('.msgn2').html("<p style=\"color:#cc0000;\">Email gresit! Incearca din nou.</p>");
+				jQuery('.msgn2').fadeIn();
+				
+				setTimeout(function(){
+				jQuery('.msgn2').slideToggle();
+				jQuery('.msgn2').empty();
+				}, 2000);
+				
+				jQuery('#newsletter2')[0].reset();
+                        
+                   }
+                        
+                } 
+                
+            });
+});
+});
 </script>

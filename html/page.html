@@ -25,6 +25,7 @@ jQuery.ajax({
                 type: "POST",
                 data: { cname: jQuery("form#contactform input[name=cname]").val(),
                         cemail: jQuery("form#contactform input[name=cemail]").val(),
+						cphone: jQuery("form#contactform input[name=cphone]").val(),
 			ctarea:jQuery("form#contactform textarea[name=ctarea]").val()
 		},
                 success: function(data) {                       

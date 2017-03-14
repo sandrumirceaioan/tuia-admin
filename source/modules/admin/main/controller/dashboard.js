@@ -1,10 +1,11 @@
 (function() {
 
     angular.module('admin-container').controller('dashboardCtrl', dashboardCtrl);
-    dashboardCtrl.$inject = ['$scope', '$state', '$rootScope', 'newOrd'];
-    function dashboardCtrl($scope, $state, $rootScope, newOrd){
+    dashboardCtrl.$inject = ['$scope', '$state', '$rootScope', 'newOrd', 'newMsg'];
+    function dashboardCtrl($scope, $state, $rootScope, newOrd, newMsg){
 
         $rootScope.newOrders = newOrd;
+        $rootScope.newMessages = newMsg;
 
         $scope.collapse = stb(localStorage.getItem('menuColl')) || false;
         localStorage.setItem('menuColl', $scope.collapse);

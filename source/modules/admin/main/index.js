@@ -40,6 +40,13 @@
                         }).catch(function(error){
                             return $q.reject(error);
                         });
+                    },
+                    newMsg: function($q, messages){
+                        return messages.getNewMessagesCount().then(function(result){
+                            return result.msg;
+                        }).catch(function(error){
+                            return $q.reject(error);
+                        });
                     }
                 }
             });

@@ -1,6 +1,6 @@
 Options +FollowSymlinks
 
-RewriteRule ^tuia-smaragd-preturi-descriere-comenzi.php$ /tuia-smaragd [L,R=301,NC] 
+RewriteRule ^tuia-smaragd-preturi-descriere-comenzi.php$ /tuia-smaragd [L,R=301,NC]
 
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
@@ -26,7 +26,7 @@ RewriteRule ^blog/([^/]*)$ /blog/?url=$1 [L]
     #The following lines are to avoid bugs with some browsers
     BrowserMatch ^Mozilla/4 gzip-only-text/html
     BrowserMatch ^Mozilla/4\.0[678] no-gzip
-    BrowserMatch \bMSIE !no-gzip !gzip-only-text/html 
+    BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
 </IfModule>
 
 <IfModule mod_headers.c>
@@ -50,6 +50,3 @@ ExpiresByType image/x-icon "access plus 1 year"
 ExpiresDefault "access plus 2 days"
 </IfModule>
 ## EXPIRES CACHING ##
-
-
-

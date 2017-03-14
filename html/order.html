@@ -1,156 +1,156 @@
-<div id="wr-main" class="contact-page">   
-            <script src="js/jquery-1.10.1.min.js"></script>
-            <div class="container">
-            	<div class="row">
-                	<div class="col-md-9 left-contact">
-                    	<h1>Finalizeaza comanda</h1>
-                        <p>Completeaza datele personale si finalizeaza comanda:</p>
-                        <form id="orderform" action="" method="POST">
-                        	<div class="input-text oleft">
-                            	<label>Nume <span>(*)</span></label>
-                                <input type="text" name="nume_client">
-                            </div>
-                            
-                            <div class="input-text oright">
-                            	<label>Prenume <span>(*)</span></label>
-                                <input type="text" name="prenume_client">
-                            </div>
-                            
-                            <div class="input-text oleft">
-                            	<label>Email <span>(*)</span></label>
-                                <input type="text" name="email_client">
-                            </div>
-                            
-                            <div class="input-text oright">
-                            	<label>Telefon <span>(*)</span></label>
-                                <input type="text" name="tel_client">
-                            </div>
-                            
-                            <div class="input-text oleft">
-                            	<label>Adresa <span>(*)</span></label>
-                                <input type="text" name="adr_client">
-                            </div>
-                            
-                            <div class="input-text oright">
-                            	<label>Oras <span>(*)</span></label>
-                                <input type="text" name="oras_client">
-                            </div>
-                            
-                            <div class="input-text oleft">
-                            	<label>Judet <span>(*)</span></label>
-                                <input type="text" name="jud_client">
-                            </div>
-                            
-                           <div class="input-text oright">
-                            	<label>Preferinte Livrare? <span>(optional)</span></label>
-                                <input type="text" name="txt_client">
-                            </div>
-                           
-                           <div class="clear"></div>
-                                                      
-                            <div class="submit">
-                            	<input class="submit-btn" type="submit" value="Trimite Comanda">
-                            </div><div class="msgo" style="display:none;"></div><div class="clear"></div>
-                        </form>
-
-                    </div><!-- end left contact -->
-                    
-                    <div class="col-md-3 right-contact">
-                    	<div class="box-page-sidebar">
-                        	<h2>Ore de contact</h2>
-                            <ul>
-                            	<li>Luni - Vineri: 8:00 - 20:00</li>
-                                <li>Sambata: 8:00 - 12:00</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="box-page-sidebar">
-                        	<h2>Ne  gasesti aici</h2>
-                            <ul>
-                                <li>Tel: 0747929875</li>
-                                <li>Email: contact@tuiasmaragd.ro</li>
-                            </ul>
-                        </div>
-                    </div><!-- end right contact -->
-                </div><!-- end row -->
-            </div><!-- end container -->
-            
-            <section class="wr-breadcrumb">
-            	<div class="container">
-                	<ul class="crumb">
-                    	<li><a href="/">Acasa</a></li>
-
-                    </ul>
-                    
-                    <ul class="social-bar">
-                    	<li><a href="https://www.facebook.com/pages/tuiasmaragdro/187681678087588" target="_blank"><i class="fa fa-facebook"></i><span>Facebook</span></a></li>
-                    </ul>
-                </div>
-            </section><!-- end breadcrumd -->
-        </div><!-- end main -->
-        
-        
-        <script>
-jQuery(document).ready(function() {
-// process the form
-jQuery("#orderform").submit(function(event) {
-event.preventDefault();
-jQuery.ajax({
-                url: "process-order.php",
-                type: "POST",
-                data: { nume_client: jQuery("form#orderform input[name=nume_client]").val(),
-                        prenume_client: jQuery("form#orderform input[name=prenume_client]").val(),
-                        email_client: jQuery("form#orderform input[name=email_client]").val(),
-                        tel_client: jQuery("form#orderform input[name=tel_client]").val(),
-                        adr_client: jQuery("form#orderform input[name=adr_client]").val(),
-                        oras_client: jQuery("form#orderform input[name=oras_client]").val(),
-                        jud_client: jQuery("form#orderform input[name=jud_client]").val(),
-			txt_client:jQuery("form#orderform input[name=txt_client]").val()
-		},
-                success: function(data) {                       
-                    
-                    if (data == 'ok') {
-				
-				jQuery('.msgo').html("<p style=\"color:#008000;\">Comanda a fost trimisa cu succes!<br />Vei fi contactat telefonic in legatura cu livrarea!</p>");
-				jQuery('.msgo').fadeIn();
-				
-				setTimeout(function(){
-				jQuery('.msgo').slideToggle();
-				jQuery('.msgo').empty();
-				}, 7000);
-				
-				jQuery('#orderform')[0].reset();
-                                
-                                setTimeout(function(){ window.location = '/produse'; }, 8000);
-				                   			
-                        
-                   } else if (data == 'err') {
-                   
-				jQuery('.msgo').html("<p style=\"color:#cc0000;\">Email sau Telefon gresit! Incearca din nou.</p>");
-				jQuery('.msgo').fadeIn();
-				
-				setTimeout(function(){
-				jQuery('.msgo').slideToggle();
-				jQuery('.msgo').empty();
-				}, 2000);
-				
-                        
-                   } else if (data == 'emp') {
-                   
-				jQuery('.msgo').html("<p style=\"color:#cc0000;\">Completeaza toate campurile obligatorii.</p>");
-				jQuery('.msgo').fadeIn();
-				
-				setTimeout(function(){
-				jQuery('.msgo').slideToggle();
-				jQuery('.msgo').empty();
-				}, 2000);
-				
-                        
-                   }
-                        
-                }
-                
-            });
-});
-});
+<div id="wr-main" class="contact-page">   
+            <script src="js/jquery-1.10.1.min.js"></script>
+            <div class="container">
+            	<div class="row">
+                	<div class="col-md-9 left-contact">
+                    	<h1>Finalizeaza comanda</h1>
+                        <p>Completeaza datele personale si finalizeaza comanda:</p>
+                        <form id="orderform" action="" method="POST">
+                        	<div class="input-texto oleft">
+                            	<label>Nume <span>(*)</span></label>
+                                <input type="text" name="nume_client">
+                            </div>
+                            
+                            <div class="input-texto oright">
+                            	<label>Prenume <span>(*)</span></label>
+                                <input type="text" name="prenume_client">
+                            </div>
+                            
+                            <div class="input-texto oleft">
+                            	<label>Email <span>(*)</span></label>
+                                <input type="text" name="email_client">
+                            </div>
+                            
+                            <div class="input-texto oright">
+                            	<label>Telefon <span>(*)</span></label>
+                                <input type="text" name="tel_client">
+                            </div>
+                            
+                            <div class="input-texto oleft">
+                            	<label>Adresa <span>(*)</span></label>
+                                <input type="text" name="adr_client">
+                            </div>
+                            
+                            <div class="input-texto oright">
+                            	<label>Oras <span>(*)</span></label>
+                                <input type="text" name="oras_client">
+                            </div>
+                            
+                            <div class="input-texto oleft">
+                            	<label>Judet <span>(*)</span></label>
+                                <input type="text" name="jud_client">
+                            </div>
+                            
+                           <div class="input-texto oright">
+                            	<label>Preferinte Livrare? <span>(optional)</span></label>
+                                <input type="text" name="txt_client">
+                            </div>
+                           
+                           <div class="clear"></div>
+                                                      
+                            <div class="submit">
+                            	<input class="submit-btn" type="submit" value="Trimite Comanda">
+                            </div><div class="msgo" style="display:none;"></div><div class="clear"></div>
+                        </form>
+
+                    </div><!-- end left contact -->
+                    
+                    <div class="col-md-3 right-contact">
+                    	<div class="box-page-sidebar">
+                        	<h2>Ore de contact</h2>
+                            <ul>
+                            	<li>Luni - Vineri: 8:00 - 20:00</li>
+                                <li>Sambata: 8:00 - 12:00</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="box-page-sidebar">
+                        	<h2>Ne  gasesti aici</h2>
+                            <ul>
+                                <li>Tel: 0747929875</li>
+                                <li>Email: contact@tuiasmaragd.ro</li>
+                            </ul>
+                        </div>
+                    </div><!-- end right contact -->
+                </div><!-- end row -->
+            </div><!-- end container -->
+            
+            <section class="wr-breadcrumb">
+            	<div class="container">
+                	<ul class="crumb">
+                    	<li><a href="/">Acasa</a></li>
+
+                    </ul>
+                    
+                    <ul class="social-bar">
+                    	<li><a href="https://www.facebook.com/pages/tuiasmaragdro/187681678087588" target="_blank"><i class="fa fa-facebook"></i><span>Facebook</span></a></li>
+                    </ul>
+                </div>
+            </section><!-- end breadcrumd -->
+        </div><!-- end main -->
+        
+        
+        <script>
+jQuery(document).ready(function() {
+// process the form
+jQuery("#orderform").submit(function(event) {
+event.preventDefault();
+jQuery.ajax({
+                url: "process-order.php",
+                type: "POST",
+                data: { nume_client: jQuery("form#orderform input[name=nume_client]").val(),
+                        prenume_client: jQuery("form#orderform input[name=prenume_client]").val(),
+                        email_client: jQuery("form#orderform input[name=email_client]").val(),
+                        tel_client: jQuery("form#orderform input[name=tel_client]").val(),
+                        adr_client: jQuery("form#orderform input[name=adr_client]").val(),
+                        oras_client: jQuery("form#orderform input[name=oras_client]").val(),
+                        jud_client: jQuery("form#orderform input[name=jud_client]").val(),
+			txt_client:jQuery("form#orderform input[name=txt_client]").val()
+		},
+                success: function(data) {                       
+                    
+                    if (data == 'ok') {
+				
+				jQuery('.msgo').html("<p style=\"color:#008000;\">Comanda a fost trimisa cu succes!<br />Vei fi contactat telefonic in legatura cu livrarea!</p>");
+				jQuery('.msgo').fadeIn();
+				
+				setTimeout(function(){
+				jQuery('.msgo').slideToggle();
+				jQuery('.msgo').empty();
+				}, 7000);
+				
+				jQuery('#orderform')[0].reset();
+                                
+                                setTimeout(function(){ window.location = '/produse'; }, 8000);
+				                   			
+                        
+                   } else if (data == 'err') {
+                   
+				jQuery('.msgo').html("<p style=\"color:#cc0000;\">Email sau Telefon gresit! Incearca din nou.</p>");
+				jQuery('.msgo').fadeIn();
+				
+				setTimeout(function(){
+				jQuery('.msgo').slideToggle();
+				jQuery('.msgo').empty();
+				}, 2000);
+				
+                        
+                   } else if (data == 'emp') {
+                   
+				jQuery('.msgo').html("<p style=\"color:#cc0000;\">Completeaza toate campurile obligatorii.</p>");
+				jQuery('.msgo').fadeIn();
+				
+				setTimeout(function(){
+				jQuery('.msgo').slideToggle();
+				jQuery('.msgo').empty();
+				}, 2000);
+				
+                        
+                   }
+                        
+                }
+                
+            });
+});
+});
 </script>
