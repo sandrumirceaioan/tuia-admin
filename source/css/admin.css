@@ -542,3 +542,22 @@ blockquote small:before {
 blockquote hr {
     border-bottom:1px solid #00c546;
 }
+
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+z-index: 3;
+color: #fff;
+cursor: default;
+background-color: #309e14;
+border-color: #309e14;
+}
+
+.products-list-image {
+  width:50px;
+}
+
+.active-color {
+  color:#309e14;
+}
+.inactive-color {
+  color:#ea2b00;
+}
