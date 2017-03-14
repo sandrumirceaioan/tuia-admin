@@ -1,22 +1,22 @@
-/*orders service*/
+/*messages service*/
 (function(){
-    angular.module('admin-orders').service('orders',orders);
-    orders.$inject = ['$q', '$http'];
-    function orders($q, $http){
-        this.getOrders = function(){
+    angular.module('admin-messages').service('messages',messages);
+    messages.$inject = ['$q', '$http'];
+    function messages($q, $http){
+        this.getMessages = function(){
             return $http({
                     method: 'POST',
-                    url: '../routes/getOrders.php'
+                    url: '../routes/getMessages.php'
                 }).then(function(result){
                     return result.data;
                 }).catch(function(error){
                     return $q.reject(error);
                 });
         };
-        this.getOneOrder = function(param){
+        this.getOneMessage = function(param){
             return $http({
                     method: 'POST',
-                    url: '../routes/getOneOrder.php',
+                    url: '../routes/getOneMessage.php',
                     data: param
                 }).then(function(result){
                     return result.data;
@@ -24,10 +24,10 @@
                     return $q.reject(error);
                 });
         };
-        this.updateOneOrder = function(param){
+        this.replyMessage = function(param){
             return $http({
                     method: 'POST',
-                    url: '../routes/solvedOrder.php',
+                    url: '../routes/replyUpdateMessage.php',
                     data: param
                 }).then(function(result){
                     return result.data;
@@ -35,10 +35,10 @@
                     return $q.reject(error);
                 });
         };
-        this.getNewOrdersCount = function(){
+        this.getNewMessagesCount = function(){
             return $http({
                     method: 'POST',
-                    url: '../routes/getNewOrders.php'
+                    url: '../routes/getNewMessages.php'
                 }).then(function(result){
                     return result.data;
                 }).catch(function(error){

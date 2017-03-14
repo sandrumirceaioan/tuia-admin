@@ -1,11 +1,11 @@
-<?phpheader('Content-Type: application/json');
+<?php
+header('Content-Type: application/json');
 error_reporting(-1);
 ini_set('display_errors', 'On');
 include('connect.php');
 
 $data = json_decode(file_get_contents("php://input"));
 
-// missing order details id
 if (!$data->orderDetails) {
 	http_response_code(500);
 	echo json_encode('{"error": "Order details id is missing!"}');

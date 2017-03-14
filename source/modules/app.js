@@ -15,7 +15,8 @@ angular.module('tuia', [
     'admin-container',
     'admin-dashboard',
     'admin-login',
-    'admin-orders'
+    'admin-orders',
+	'admin-messages'
 	])
 	.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
 

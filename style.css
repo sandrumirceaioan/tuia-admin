@@ -5238,7 +5238,17 @@ font-size: 55px;
 	zoom:1;
 	vertical-align:middle;
 	margin-right:10px;
-	width:390px;
+	width:31%;
+	margin-bottom:15px;
+}
+
+.contact-page .input-texto{
+	display:inline-block;
+	*display:inline;
+	zoom:1;
+	vertical-align:middle;
+	margin-right:10px;
+	width:380px;
 	margin-bottom:15px;
 }
 
@@ -5257,6 +5267,14 @@ font-size: 55px;
 	background:#FFF;
 	border:1px solid #d7d7d7;
 }
+
+.contact-page .input-texto input{
+	width:100%;
+	padding:6px 10px;
+	background:#FFF;
+	border:1px solid #d7d7d7;
+}
+
 .contact-page form label{
 	display:block;
 	font-weight:normal;

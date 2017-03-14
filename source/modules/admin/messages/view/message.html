@@ -1,0 +1,42 @@
+<div class="row inner contact">
+        <div class="col-md-6">
+            <h4>Message #{{message.the_id}}</h4>
+            <blockquote class="blockquote myBlk">
+              <p class="mb-0"><small><i>{{message.the_message}}</i></small></p>
+              <hr>
+              <footer class="blockquote-footer smallfont">Name: <cite>{{message.the_name}}</cite></footer>
+              <footer ng-if="message.the_email" class="blockquote-footer smallfont">Email: <cite>{{message.the_email}}</cite></footer>
+              <footer ng-if="message.the_phone" class="blockquote-footer smallfont">Phone: <cite>{{message.the_phone}}</cite></footer>
+              <footer class="blockquote-footer smallfont">Date: <cite>{{message.the_date | date:"MM/dd/yyyy 'at' h:mma"}}</cite></footer>
+            </blockquote>
+            <div class="clearfix"></div>
+            <button ng-hide="message.the_status == 0" type="submit" class="btn btn-success col-md-2 pull-right" name="submit" ng-click="replyMessage(false)">Mark as read</button>
+            <div class="clearfix"></div>
+        <hr>
+
+        <h4>Reply to message #{{message.the_id}}</h4>
+        <br />
+            <div class="contact-form">
+                    <form name="form">
+                            <div class="form-group customFields" ng-class="{ 'has-error': form.title.$dirty && form.title.$error.required }">
+                                <input type="text" name="title" class="form-control" ng-model="reply.replyTitle" placeholder="Email Title" required autofocus>
+                            </div>
+                            <div class="form-group customFields" ng-class="{ 'has-error': form.message.$dirty && form.message.$error.required }">
+                                <textarea class="form-control" name="message" rows="10" ng-model="reply.replyMessage" placeholder="Email message" required autofocus></textarea>
+                            </div>
+                            <div class="form-group customFields">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <button type="submit" class="btn btn-success col-md-6" name="submit" ng-click="replyMessage(reply)" ng-disabled="form.$invalid">Reply</button>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <span>save draft...</span>
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="clearfix"></div>
+                    </form>
+            </div>
+        </div>
+    <div class="clearfix"></div>
+</div>

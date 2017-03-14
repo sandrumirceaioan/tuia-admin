@@ -1,0 +1,32 @@
+<div class="row inner contact">
+    <div class="col-md-12">
+        <h4>Messages</h4>
+        <table id="tuiaMessages" datatable="ng" dt-options="dtOptions" dt-column-defs="dtColumnDefs" class="table table-striped table-bordered table-hover">
+        	<thead>
+          	<tr>
+          	<th>Id</th>
+          	<th class="col-md-2">Name</th>
+          	<th>Email</th>
+            <th>Phone</th>
+          	<th>Message</th>
+          	<th>Date</th>
+          	<th>Reply</th>
+          	</tr>
+          </thead>
+        	<tbody>
+        		<tr ng-repeat="message in messages">
+          		<td>{{message.the_id}}</td>
+          		<td class="col-md-2">{{message.the_name}}</td>
+          		<td>{{message.the_email}}</td>
+                <td>{{message.the_phone}}</td>
+          		<td>{{message.the_message}}</td>
+          		<td>{{message.the_date}}</td>
+                <td>
+                    <a ui-sref="admin.dashboard.message({messageDetails: message.the_id})" class="btn btn-default btn-block" ng-class="message.the_status == '1' ? 'btn-success' : 'class-false'"><i class="fa fa-reply" aria-hidden="true"></i></a>
+                </td>
+        		</tr>
+        	</tbody>
+        </table>
+    </div>
+    <div class="clearfix"></div>
+</div><!-- End Inner -->

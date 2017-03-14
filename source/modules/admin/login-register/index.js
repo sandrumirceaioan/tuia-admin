@@ -11,6 +11,7 @@
                     checklogged: function($rootScope, $state, LogUser){
                         LogUser.loggedUser().then(function(result){
                             $rootScope.logged = result;
+                            console.log('login-index result:', result);
                             $state.go('admin.dashboard.home');
                         }).catch(function(error){
                             $state.go('admin.login');

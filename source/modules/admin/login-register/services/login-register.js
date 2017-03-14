@@ -6,7 +6,7 @@
         this.loginUser = function(param){
             return $http({
                     method: 'POST',
-                    url: '/tuiasmaragd/routes/loginUser.php',
+                    url: '../routes/loginUser.php',
                     data: param
                 }).then(function(result){
                     return result.data;
@@ -20,7 +20,7 @@
             var toCheck = {pass:token};
                 return $http({
                         method: 'POST',
-                        url: '/tuiasmaragd/routes/checkUser.php',
+                        url: '../routes/checkUser.php',
                         data: toCheck
                     }).then(function(result){
                         return result.data;
