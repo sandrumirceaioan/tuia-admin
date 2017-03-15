@@ -3,6 +3,11 @@
     productCtrl.$inject = ['$scope', '$rootScope', 'ngNotify', 'products', 'oneProd'];
     function productCtrl($scope, $rootScope, ngNotify, products, oneProd){
 
+            if (oneProd.the_active == "1") oneProd.the_active = true;
+            if (oneProd.the_active == "0") oneProd.the_active = false;
+            if (oneProd.the_robots == "1") oneProd.the_robots = true;
+            if (oneProd.the_robots == "0") oneProd.the_robots = false;
+
         	$scope.product = oneProd;
 
           console.log($scope.product);

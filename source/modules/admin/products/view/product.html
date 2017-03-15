@@ -1,1 +1,46 @@
-<span>product...</span>
+<div class="row inner contact">
+        <div class="col-md-6">
+            <h4><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit product #{{product.the_id}} <small>({{product.the_title}})</small></h4>
+            <hr>
+            <div class="contact-form">
+                    <form name="form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group customFields" ng-class="{ 'has-error': form.title.$dirty && form.title.$error.required }">
+                                    <label for="title">Title</label>
+                                    <input type="text" name="title" class="form-control" ng-model="product.the_title" placeholder="Product Title" required autofocus>
+                                </div>
+                                <div class="form-group customFields" ng-class="{ 'has-error': form.url.$dirty && form.url.$error.required }">
+                                    <label for="title">Url</label>
+                                    <input type="text" name="url" class="form-control" ng-model="product.the_url" placeholder="Product Url" required autofocus></input>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label><input type="checkbox" name="active" ng-model="product.the_active">
+                                                <span ng-show="product.the_active">Active</span>
+                                                <span ng-show="!product.the_active">Inactive</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label><input type="checkbox" name="noindex" ng-model="product.the_robots">
+                                                <span ng-show="product.the_robots">Index/Follow</span>
+                                                <span ng-show="!product.the_robots">Noindex/Nofollow</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group customFields" ng-class="{ 'has-error': form.shortdesc.$dirty && form.shortdesc.$error.required }">
+                                    <label for="title">Short description</label>
+                                    <textarea type="text" name="shortdesc" rows="3" class="form-control" ng-model="product.the_shortdescription" placeholder="Short description" required autofocus></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+            </div>
+        </div>
+    <div class="clearfix"></div>
+</div>
