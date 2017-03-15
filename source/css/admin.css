@@ -561,3 +561,8 @@ border-color: #309e14;
 .inactive-color {
   color:#ea2b00;
 }
+
+.checkbox input[type=checkbox] {
+    position:relative !important;
+    margin-left: 0px !important;
+}
