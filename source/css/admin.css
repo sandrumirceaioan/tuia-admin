@@ -566,3 +566,27 @@ border-color: #309e14;
     position:relative !important;
     margin-left: 0px !important;
 }
+
+.admin-image-list {
+  list-style: none;
+  background: #f5f5f5;
+  padding: 10px;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.admin-image-list li {
+  float: left;
+  width: 100px;
+  margin-right: 10px;
+  cursor: pointer;
+  background: #eaeaea;
+}
+
+.my-thumbnail {
+  margin-bottom: 10px;
+}
+
+.my-delete-btn {
+  color:#484848;
+  margin-bottom:10px;
+}

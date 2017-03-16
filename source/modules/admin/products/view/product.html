@@ -39,8 +39,52 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                          <div class="col-md-12">
+                              <div class="form-group customFields" ng-class="{ 'has-error': form.fulldesc.$dirty && form.fulldesc.$error.required }">
+                                  <label for="title">Full description</label>
+                                  <textarea type="text" name="fulldesc" rows="8" class="form-control" ng-model="product.the_description" placeholder="Full description" required autofocus></textarea>
+                              </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                              <div class="form-group customFields" ng-class="{ 'has-error': form.oldprice.$dirty && form.oldprice.$error.required }">
+                                  <label for="oldprice">Old price</label>
+                                  <input type="number" name="oldprice" class="form-control" ng-model="product.the_oldprice" placeholder="Old price" required autofocus>
+                              </div>
+                            </div>
+                              <div class="col-md-6">
+                                  <div class="form-group customFields" ng-class="{ 'has-error': form.newprice.$dirty && form.newprice.$error.required }">
+                                      <label for="newprice">New price</label>
+                                      <input type="number" name="newprice" class="form-control" ng-model="product.the_newprice" placeholder="New price" required autofocus>
+                                  </div>
+                              </div>
+                          </div>
+                        </div>
+
                     </form>
             </div>
+            <div class="col-md-6">
+              <h4><i class="fa fa-picture-o" aria-hidden="true"></i> Edit product images</h4>
+              <hr>
+              <ul class="admin-image-list">
+                <li ng-repeat="image in images">
+                  <a ng-click="Lightbox.openModal(images, $index)">
+                    <img ng-src="{{image.thumbUrl}}" class="img-thumbnail my-thumbnail">
+                  </a>
+                  <div class="clearfix"></div>
+                  <div class="row">
+                    <div class="col-md-12 text-center">
+                      <a ng-click="deleteImage(image)" class="btn btn-default my-delete-btn"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                    </div>
+                  </div>
+                </li>
+                <div class="clearfix"></div>
+              </ul>
+              <div class="clearfix"></div>
+            </div>
+
         </div>
     <div class="clearfix"></div>
 </div>

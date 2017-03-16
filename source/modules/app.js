@@ -11,6 +11,7 @@ angular.module('tuia', [
 	'ncy-angular-breadcrumb',
 	'ngSanitize',
 	'angular-md5',
+  'bootstrapLightbox',
     'admin',
     'admin-container',
     'admin-dashboard',
@@ -19,7 +20,7 @@ angular.module('tuia', [
 		'admin-messages',
 		'admin-products'
 	])
-	.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
+	.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationProvider', 'LightboxProvider', function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, LightboxProvider) {
 
 		$locationProvider.hashPrefix('');
 		$urlRouterProvider.otherwise('/login');

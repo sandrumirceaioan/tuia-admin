@@ -45,5 +45,16 @@
         //             return $q.reject(error);
         //         });
         // };
+        this.deleteProductImage = function(param){
+            return $http({
+                    method: 'POST',
+                    url: '../routes/deleteProductImage.php',
+                    data: param
+                }).then(function(result){
+                    return result.data;
+                }).catch(function(error){
+                    return $q.reject(error);
+                });
+        };
     }
 })();

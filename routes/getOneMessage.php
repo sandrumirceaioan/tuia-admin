@@ -14,14 +14,14 @@ if (!$data->messageDetails) {
 
 $message = mysqli_query($conexiune, "SELECT * FROM contact_table WHERE the_id = ".$data->messageDetails."");
 
-            if (!$message || $message===null) {
+            $msg = mysqli_fetch_assoc($message);
+
+            if (!$msg || $msg == null) {
                 http_response_code(500);
-                echo json_encode('{"error": "Full order query failed!"}');
+                echo json_encode('{"error": "One message query failed!"}');
                 die();
             }
 
-            $msg = mysqli_fetch_assoc($message);
             http_response_code(200);
-
-    		echo json_encode($msg);
+    		    echo json_encode($msg);
 ?>

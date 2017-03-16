@@ -25,7 +25,8 @@ module.exports = function(grunt) {
                     './bower_components/angular-breadcrumb/dist/angular-breadcrumb.js',
                     './bower_components/angular-md5/angular-md5.min.js',
                     './bower_components/angular-resource/angular-resource.js',
-                    './bower_components/angular-datatables/dist/plugins/bootstrap/angular-datatables.bootstrap.min.js'
+                    './bower_components/angular-datatables/dist/plugins/bootstrap/angular-datatables.bootstrap.min.js',
+                    './bower_components/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.min.js'
                 ],
                 dest: './manage/bower.js'
             },
@@ -47,7 +48,8 @@ module.exports = function(grunt) {
                     './bower_components/ngtoast/dist/ngToast-animations.min.css',
                     './bower_components/angular-datatables/dist/plugins/bootstrap/datatables.bootstrap.min.css',
                     './bower_components/ng-notify/dist/ng-notify.min.css',
-                    './bower_components/ng-tags-input/ng-tags-input.min.css'
+                    './bower_components/ng-tags-input/ng-tags-input.min.css',
+                    './bower_components/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.min.css'
                 ],
                 dest: './manage/bower.css'
             },
