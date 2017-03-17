@@ -1,7 +1,7 @@
 (function(){
     angular.module('admin-products').controller('productCtrl', productCtrl);
-    productCtrl.$inject = ['$scope', '$rootScope', 'ngNotify', 'products', 'oneProd', 'Lightbox', '$uibModal', '$document'];
-    function productCtrl($scope, $rootScope, ngNotify, products, oneProd, Lightbox, $uibModal, $document){
+    productCtrl.$inject = ['$scope', '$rootScope', 'ngNotify', 'products', 'oneProd', 'Lightbox', '$uibModal', '$document', 'FileUploader'];
+    function productCtrl($scope, $rootScope, ngNotify, products, oneProd, Lightbox, $uibModal, $document, FileUploader){
 
             if (oneProd.the_active == "1") oneProd.the_active = true;
             if (oneProd.the_active == "0") oneProd.the_active = false;
@@ -62,6 +62,17 @@
                   });
 
             }
+
+            console.log($scope.uploader);
+
+            // upload image
+            var uploader = $scope.uploader = new FileUploader({
+                url: '../routes/uploadImage.php'
+            });
+
+            uploader.onSuccessItem = function(fileItem, response, status, headers) {
+                        console.info('onSuccessItem', fileItem, response, status, headers);
+                    };
 
     }
 })();

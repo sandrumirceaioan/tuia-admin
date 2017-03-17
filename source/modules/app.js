@@ -12,6 +12,7 @@ angular.module('tuia', [
 	'ngSanitize',
 	'angular-md5',
   'bootstrapLightbox',
+	'angularFileUpload',
     'admin',
     'admin-container',
     'admin-dashboard',
