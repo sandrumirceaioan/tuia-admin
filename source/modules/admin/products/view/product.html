@@ -76,7 +76,9 @@
                   <div class="clearfix"></div>
                   <div class="row">
                     <div class="col-md-12 text-center">
-                      <a ng-click="deleteImage(image)" class="btn btn-default my-delete-btn"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                      <a ng-hide="confirm" ng-click="confirm = true" class="btn btn-default my-delete-btn"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                      <a ng-show="confirm" ng-click="confirm = false" class="btn btn-danger my-confirm-btn"><i class="fa fa-ban" aria-hidden="true"></i></a>
+                      <a ng-show="confirm" ng-click="deleteImage(image.file, $index)" class="btn btn-success my-confirm-btn"><i class="fa fa-check" aria-hidden="true"></i></a>
                     </div>
                   </div>
                 </li>

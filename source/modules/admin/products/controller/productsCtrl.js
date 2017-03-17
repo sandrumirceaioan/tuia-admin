@@ -28,12 +28,13 @@
         DTColumnDefBuilder.newColumnDef(8).notSortable()
       ];
 
+      getProds = getProds.map(function(elem){
+          elem.the_image = JSON.parse(elem.the_image);
+          return elem;
+      });
+
       $scope.products = getProds;
 
-      $scope.returnImage = function(images){
-        var imgArray = images.split(",");
-        return imgArray[0];
-      }
 
     }
 })();

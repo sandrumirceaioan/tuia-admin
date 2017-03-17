@@ -41,9 +41,9 @@ function buildcategory($url,$type) {
                 
                 $layout_product = str_replace('{{_CATEGOTY_PRODUCT_URL}}',$product['the_url'],$layout_product);
                 
-                $img_split = explode(',',$product['the_image']);
+                $img_json = json_decode($product['the_image'], true);
                 
-                $layout_product = str_replace('{{_CATEGOTY_PRODUCT_IMAGE}}',$img_split[0],$layout_product);
+                $layout_product = str_replace('{{_CATEGOTY_PRODUCT_IMAGE}}',$img_json[0]['image'],$layout_product);
                 $layout_product = str_replace('{{_CATEGOTY_PRODUCT_TITLE}}',$product['the_title'],$layout_product);
                 $layout_product = str_replace('{{_CATEGOTY_PRODUCT_PRICE}}',$product['the_newprice'],$layout_product);
                 $layout_product = str_replace('{{_CATEGOTY_PRODUCT_SHORT_DESCRIPTION}}',$product['the_shortdescription'],$layout_product);

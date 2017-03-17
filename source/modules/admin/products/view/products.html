@@ -20,7 +20,7 @@
           		<td>{{product.the_id}}</td>
               <td><a href="http://tuiasmaragd.ro/products/{{product.the_url}}" target="_blank">{{product.the_url}}</a></td>
               <td>{{product.the_title}}</td>
-              <td><img ng-src="../images/products/{{returnImage(product.the_image)}}" alt="" title="" class="products-list-image"></td>
+              <td><img ng-src="../images/products/{{product.the_image[0].image}}" alt="" title="" class="products-list-image"></td>
               <td class="col-md-3">{{product.the_shortdescription}}</td>
               <td><del class="inactive-color">{{product.the_oldprice}}</del></td>
               <td><span class="active-color">{{product.the_newprice}}</span></td>
