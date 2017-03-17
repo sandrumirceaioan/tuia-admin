@@ -13,22 +13,35 @@
             $scope.product = oneProd;
             $scope.Lightbox = Lightbox;
 
-            var images = oneProd.the_image.split(",");
+            var images = JSON.parse(oneProd.the_image);
             $scope.images = images.map(function(img){
-                var obj = {
-                  url: '../images/products/' + img,
-                  caption: img,
-                  thumbUrl: '../images/products/small/' + img
+                return {
+                  url: '../images/products/' + img.image,
+                  caption: img.alt,
+                  thumbUrl: '../images/products/small/' + img.image,
+                  file: img.image
                 };
-                return obj;
             });
 
-            $scope.deleteImage = function(img){
-              console.log('img: ',img);
-              products.deleteProductImage(img).then(function(result){
+            $scope.deleteImage = function(img,index){
 
-                    console.log('controller result: ',result);
+                    if ($scope.images.length === 1) {
+                        ngNotify.set('Cannot delete last image!', {
+                            theme: 'pure',
+                            type: 'error',
+                            duration: 3000,
+                            button: true,
+                            html: true
+                        });
+                        return;
+                    };
 
+                    images = images.filter(function(elem){
+                       if (img !== elem.image) return elem;
+                    });
+
+                  products.deleteProductImage({id: parseInt(oneProd.the_id), file:img, arr:images}).then(function(result){
+                        $scope.images.splice(index,1);
                           var scc = JSON.parse(result);
                           ngNotify.set(scc.success, {
                               theme: 'pure',
@@ -37,7 +50,7 @@
                               button: true,
                               html: true
                           });
-              }).catch(function(error){
+                  }).catch(function(error){
                           var err = JSON.parse(error.data);
                           ngNotify.set(err.error, {
                               theme: 'pure',
@@ -46,33 +59,9 @@
                               button: true,
                               html: true
                           });
-              		});
+                  });
 
             }
-          console.log($scope.product);
 
-        	// $scope.upStatus = function(id){
-        	// 	orders.updateOneOrder({order:id}).then(function(result){
-        	// 		$scope.tabContent.osolved = '1';
-          //     $rootScope.newOrders--;
-          //           var scc = JSON.parse(result);
-          //           ngNotify.set(scc.success, {
-          //               theme: 'pure',
-          //               type: 'success',
-          //               duration: 3000,
-          //               button: true,
-          //               html: true
-          //           });
-        	// 	}).catch(function(error){
-          //           var err = JSON.parse(error.data);
-          //           ngNotify.set(err.error, {
-          //               theme: 'pure',
-          //               type: 'error',
-          //               duration: 3000,
-          //               button: true,
-          //               html: true
-          //           });
-        	// 	});
-        	// }
     }
 })();

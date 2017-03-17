@@ -33,9 +33,10 @@ function buildhomepage($url,$type) {
                 $stock = ($product['the_stock'] > 0) ? 'In stoc' : 'Nu este in stoc';
                 $layout_product = str_replace('{{_HOMEPAGE_PRODUCT_URL}}',$product['the_url'],$layout_product);
                 
-                $img_split = explode(',',$product['the_image']);
+				
+				$img_json = json_decode($product['the_image'], true);
                 
-                $layout_product = str_replace('{{_HOMEPAGE_PRODUCT_IMAGE}}',$img_split[0],$layout_product);
+                $layout_product = str_replace('{{_HOMEPAGE_PRODUCT_IMAGE}}',$img_json[0]['image'],$layout_product);
                 $layout_product = str_replace('{{_HOMEPAGE_PRODUCT_TITLE}}',$product['the_title'],$layout_product);
                 $layout_product = str_replace('{{_HOMEPAGE_PRODUCT_PRICE}}',$product['the_newprice'],$layout_product);
                 $layout_product = str_replace('{{_HOMEPAGE_PRODUCT_SHORT_DESCRIPTION}}',$product['the_shortdescription'],$layout_product);

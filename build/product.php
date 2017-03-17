@@ -11,17 +11,16 @@ function buildproduct($url,$type) {
             $robots = ($product['the_robots'] ==  0) ? 'NOINDEX, NOFOLLOW' : 'INDEX, FOLLOW';
             
             $layout = str_replace('{{_SINGLE_PRODUCT_URL}}',$product['the_url'],$layout);
-            
-            $img_split = explode(',',$product['the_image']);
-            
-            $layout = str_replace('{{_SINGLE_PRODUCT_IMAGE}}',$img_split[0],$layout);
-                            
+
+			$img_json = json_decode($product['the_image'], true);
+			
+            $layout = str_replace('{{_SINGLE_PRODUCT_IMAGE}}',$img_json[0]['image'],$layout);
+							
                 $imglist = "";
-                foreach ($img_split as $key => $value) {
-                        $imglist .= '<li><a href="images/products/'.$value.'"><img src="images/products/'.$value.'" alt="" /></a></li>';
+                foreach ($img_json as $key => $value) {
+                        $imglist .= '<li><a href="images/products/'.$value['image'].'"><img src="images/products/'.$value['image'].'" alt="'.$value['alt'].'" /></a></li>';
                 }
-                
-                                        
+				
             $layout = str_replace('{{_SINGLE_PRODUCT_IMAGES}}',$imglist,$layout);
             
             $layout = str_replace('{{_SINGLE_PRODUCT_TITLE}}',$product['the_title'],$layout);

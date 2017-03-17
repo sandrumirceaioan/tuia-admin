@@ -22,9 +22,9 @@ foreach ($_SESSION as $name => $value) {
                                 
                                 $layout_item = str_replace('{{ITEM_URL}}',$row['the_url'],$layout_item);
                                 
-                                $img_split = explode(',',$row['the_image']);
+                                $img_json = json_decode($row['the_image'], true);
                                 
-                                $layout_item = str_replace('{{ITEM_IMAGE}}',$img_split[0],$layout_item);
+                                $layout_item = str_replace('{{ITEM_IMAGE}}',$img_json[0]['image'],$layout_item);
                                 $layout_item = str_replace('{{ITEM_TITLE}}',$row['the_title'],$layout_item);
                                 $layout_item = str_replace('{{ITEM_SHORT_DESCRIPTION}}',$row['the_shortdescription'],$layout_item);
                                 
