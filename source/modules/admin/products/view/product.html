@@ -1,9 +1,9 @@
 <div class="row inner contact">
         <div class="col-md-6">
-            <h4><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit product #{{product.the_id}} <small>({{product.the_title}})</small></h4>
+            <h4><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Product info</h4>
             <hr>
             <div class="contact-form">
-                    <form name="form">
+                    <form name="form" ng-submit="updateProductInfo(product)">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group customFields" ng-class="{ 'has-error': form.title.$dirty && form.title.$error.required }">
@@ -50,23 +50,27 @@
                         <div class="row">
                           <div class="col-md-6">
                               <div class="form-group customFields" ng-class="{ 'has-error': form.oldprice.$dirty && form.oldprice.$error.required }">
-                                  <label for="oldprice">Old price</label>
-                                  <input type="number" name="oldprice" class="form-control" ng-model="product.the_oldprice" placeholder="Old price" required autofocus>
+                                  <label for="oldprice" class="red-color">Old price</label>
+                                  <input type="number" step="any" name="oldprice" class="form-control" ng-model="product.the_oldprice" placeholder="Old price" required autofocus>
                               </div>
                             </div>
                               <div class="col-md-6">
                                   <div class="form-group customFields" ng-class="{ 'has-error': form.newprice.$dirty && form.newprice.$error.required }">
-                                      <label for="newprice">New price</label>
-                                      <input type="number" name="newprice" class="form-control" ng-model="product.the_newprice" placeholder="New price" required autofocus>
+                                      <label for="newprice" class="green-color">New price</label>
+                                      <input type="number" step="any" name="newprice" class="form-control" ng-model="product.the_newprice" placeholder="New price" required autofocus>
                                   </div>
                               </div>
                           </div>
+                          <div class="row">
+                            <div class="col-md-12 form-group customFields">
+                                <button type="submit" class="btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save Product</button>
+                            </div>
                         </div>
-
+                        </div>
                     </form>
             </div>
             <div class="col-md-6">
-              <h4><i class="fa fa-picture-o" aria-hidden="true"></i> Edit product images</h4>
+              <h4><i class="fa fa-picture-o" aria-hidden="true"></i> Product images</h4>
               <hr>
               <ul class="admin-image-list">
                 <li ng-repeat="image in images">
@@ -134,19 +138,23 @@
                           </tbody>
                       </table>
 
-                      <div>
-                          <div>
+                      <div class="row">
+                          <div class="col-md-12">
                               Progress:
                               <div class="progress" style="">
                                   <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
                               </div>
                           </div>
-                          <button type="button" class="btn btn-success btn-s" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">
-                              <i class="fa fa-upload" aria-hidden="true"></i> Upload all
-                          </button>
-                          <button type="button" class="btn btn-danger btn-s" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length">
-                              <i class="fa fa-trash" aria-hidden="true"></i> Remove all
-                          </button>
+                          <div class="col-md-6 form-group customFields">
+                              <button type="button" class="btn btn-success" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">
+                                  <i class="fa fa-upload" aria-hidden="true"></i> Upload all
+                              </button>
+                          </div>
+                          <div class="col-md-6 form-group customFields">
+                              <button type="button" class="btn btn-danger" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length">
+                                  <i class="fa fa-trash" aria-hidden="true"></i> Remove all
+                              </button>
+                          </div>
                       </div>
 
                   </div>
