@@ -27,14 +27,14 @@ angular.module('tuia', [
 		$urlRouterProvider.otherwise('/login');
 		$locationProvider.html5Mode(false);
 
-}])
+}]);
 
-.run(function($state, $rootScope){
-	$rootScope.$on('$stateChangeStart',
-	function(event, toState, toParams, fromState, fromParams){
-		$rootScope.currentState =toState.name;
-        console.log($rootScope.currentState);
-	});
-})
+// .run(function($state, $rootScope){
+// 	$rootScope.$on('$stateChangeStart',
+// 	function(event, toState, toParams, fromState, fromParams){
+// 		$rootScope.currentState =toState.name;
+//         console.log($rootScope.currentState);
+// 	});
+// })
 
 })();
