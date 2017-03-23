@@ -13,6 +13,7 @@ angular.module('tuia', [
 	'angular-md5',
   'bootstrapLightbox',
 	'angularFileUpload',
+  'chart.js',
     'admin',
     'admin-container',
     'admin-dashboard',
@@ -21,11 +22,18 @@ angular.module('tuia', [
 		'admin-messages',
 		'admin-products'
 	])
-	.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationProvider', 'LightboxProvider', function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, LightboxProvider) {
+	.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationProvider', 'LightboxProvider', 'ChartJsProvider', function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, LightboxProvider, ChartJsProvider) {
 
 		$locationProvider.hashPrefix('');
 		$urlRouterProvider.otherwise('/login');
 		$locationProvider.html5Mode(false);
+
+    ChartJsProvider.setOptions({
+      responsive: true
+    });
+    ChartJsProvider.setOptions('line', {
+      showLines: true
+    });
 
 }]);
 
