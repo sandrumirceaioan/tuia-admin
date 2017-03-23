@@ -27,7 +27,9 @@ module.exports = function(grunt) {
                     './bower_components/angular-resource/angular-resource.js',
                     './bower_components/angular-datatables/dist/plugins/bootstrap/angular-datatables.bootstrap.min.js',
                     './bower_components/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.min.js',
-                    './bower_components/angular-file-upload/dist/angular-file-upload.min.js'
+                    './bower_components/angular-file-upload/dist/angular-file-upload.min.js',
+                    './bower_components/chart.js/dist/Chart.min.js',
+                    './bower_components/angular-chart.js/dist/angular-chart.min.js'
                 ],
                 dest: './manage/bower.js'
             },

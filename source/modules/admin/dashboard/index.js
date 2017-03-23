@@ -11,21 +11,21 @@
                 },
                 controller: 'homeCtrl',
                 resolve: {
-                //   getAPIv4Chart1: function($q, dashboard, ngNotify){
-                //       return dashboard.getAPIv4Stats().then(function(result){
-                //           return result;
-                //       }).catch(function(error){
-                //           var err = JSON.parse(error.data);
-                //           ngNotify.set(err.error, {
-                //               theme: 'pure',
-                //               type: 'error',
-                //               duration: 3000,
-                //               button: true,
-                //               html: true
-                //           });
-                //           return $q.reject(error);
-                //       });
-                //   }
+                  getAPIv4Chart1: function($q, dashboard, ngNotify){
+                      return dashboard.getAPIv4Stats().then(function(result){
+                          return result;
+                      }).catch(function(error){
+                          var err = JSON.parse(error.data);
+                          ngNotify.set(err.error, {
+                              theme: 'pure',
+                              type: 'error',
+                              duration: 3000,
+                              button: true,
+                              html: true
+                          });
+                          return $q.reject(error);
+                      });
+                  }
                 }
             });
 

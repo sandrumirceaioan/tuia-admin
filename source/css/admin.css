@@ -604,22 +604,23 @@ border-color: #309e14;
 }
 
 .main-stats .boxes {
-    padding: 20px 10px;
-    box-sizing: border-box;
-    background: none;
-    border-right: 10px solid #ffffff;
-    border-left: 10px solid #ffffff;
-    border-bottom: 10px solid #ffffff;
+  padding: 20px 10px;
+  box-sizing: border-box;
+  background: #f3f3f3;
+  border-right: 15px solid #ffffff;
+  border-bottom: 10px solid #ffffff;
 }
 
 .main-stats span {
-    color: #969696;
-        text-shadow: 1px 1px 1px #000000;
-        font-size: 25px;
-        vertical-align: top;
+  color: #585858;
+  font-size: 13px;
 }
 
-.main-stats span i {
-    font-size: 80px;
-    padding-right:10px;
+.main-stats .boxes h3 {
+  font-size: 25px;
+  color: #3ca000;
+  line-height: 0px;
+}
+.last-box {
+      border-right: 15px solid #ffffff !important;
 }
