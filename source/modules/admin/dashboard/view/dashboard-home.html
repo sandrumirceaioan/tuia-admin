@@ -1,42 +1,44 @@
 <div class="row inner contact">
-    <div class="col-md-12">
+    <div class="col-md-6">
         <div class="main-stats">
-            <div class="col-md-2 boxes">
+            <div class="col-md-3 boxes">
               <div class="text-center">
-                <span><i class="fa fa-users" aria-hidden="true"></i> Unique Visits</span>
+                <span><i class="fa fa-users" aria-hidden="true"></i> Users</span>
                 <div class="clearfix"></div>
-                  <h3>2540</h3>
+                  <h3>{{users}}</h3>
                 </div>
             </div>
-            <div class="col-md-2 boxes">
+            <div class="col-md-3 boxes">
                 <div class="text-center">
-                <span><i class="fa fa-desktop" aria-hidden="true"></i> Page Views</span>
+                <span><i class="fa fa-desktop" aria-hidden="true"></i> Views</span>
                 <div class="clearfix"></div>
-                  <h3>22540</h3>
+                  <h3>{{views}}</h3>
                 </div>
             </div>
-            <div class="col-md-2 boxes">
+            <div class="col-md-3 boxes">
               <div class="text-center">
-                <span><i class="fa fa-clock-o" aria-hidden="true"></i> Visit Duration</span>
+                <span><i class="fa fa-clock-o" aria-hidden="true"></i> Duration</span>
                 <div class="clearfix"></div>
-                  <h3>03:35</h3>
+                  <h3>{{duration | number:2}}</h3>
                 </div>
             </div>
-            <div class="col-md-2 boxes last-box">
+            <div class="col-md-3 boxes last-box">
               <div class="text-center">
-                <span><i class="fa fa-level-down" aria-hidden="true"></i> Bounce Rate</span>
+                <span><i class="fa fa-level-down" aria-hidden="true"></i> Bounce</span>
                 <div class="clearfix"></div>
-                  <h3>36.00%</h3>
+                  <h3>{{bounce | number:2}} %</h3>
                 </div>
             </div>
-            <div class="col-md-4">
-                <canvas class="chart chart-line" chart-data="data" chart-labels="labels" chart-series="series" chart-click="onClick"></canvas>
-            </div>
-        <div class="clearfix"></div>
         </div>
+        <div class="clearfix"></div>
+        <div class="row">
+          <div class="col-md-12">
+              <canvas class="chart chart-line" chart-data="data" chart-labels="labels" chart-series="series"></canvas>
+          </div>
+      </div>
     </div>
-    <div class="clearfix"></div>
-    <div class="col-md-4">
-    next...
+    <div class="col-md-6">
+      last orders...
     </div>
+
 </div><!-- End Inner -->

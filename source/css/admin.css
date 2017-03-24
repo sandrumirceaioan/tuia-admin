@@ -606,7 +606,7 @@ border-color: #309e14;
 .main-stats .boxes {
   padding: 20px 10px;
   box-sizing: border-box;
-  background: #f3f3f3;
+  background: none;
   border-right: 15px solid #ffffff;
   border-bottom: 10px solid #ffffff;
 }
