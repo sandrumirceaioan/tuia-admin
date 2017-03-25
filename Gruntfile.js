@@ -29,7 +29,10 @@ module.exports = function(grunt) {
                     './bower_components/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.min.js',
                     './bower_components/angular-file-upload/dist/angular-file-upload.min.js',
                     './bower_components/chart.js/dist/Chart.min.js',
-                    './bower_components/angular-chart.js/dist/angular-chart.min.js'
+                    './bower_components/angular-chart.js/dist/angular-chart.min.js',
+                    './bower_components/moment/moment.js',
+                    './bower_components/bootstrap-daterangepicker/daterangepicker.js',
+                    './bower_components/angular-daterangepicker/js/angular-daterangepicker.min.js'
                 ],
                 dest: './manage/bower.js'
             },
@@ -52,7 +55,8 @@ module.exports = function(grunt) {
                     './bower_components/angular-datatables/dist/plugins/bootstrap/datatables.bootstrap.min.css',
                     './bower_components/ng-notify/dist/ng-notify.min.css',
                     './bower_components/ng-tags-input/ng-tags-input.min.css',
-                    './bower_components/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.min.css'
+                    './bower_components/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.min.css',
+                    './bower_components/bootstrap-daterangepicker/daterangepicker.css'
                 ],
                 dest: './manage/bower.css'
             },

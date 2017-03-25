@@ -13,6 +13,7 @@ angular.module('tuia', [
 	'angular-md5',
   'bootstrapLightbox',
 	'angularFileUpload',
+	'daterangepicker',
   'chart.js',
     'admin',
     'admin-container',
