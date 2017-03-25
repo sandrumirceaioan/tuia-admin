@@ -604,11 +604,11 @@ border-color: #309e14;
 }
 
 .main-stats .boxes {
-  padding: 20px 10px;
-  box-sizing: border-box;
-  background: none;
-  border-right: 15px solid #ffffff;
-  border-bottom: 10px solid #ffffff;
+    padding: 0px 10px 15px 10px;
+        box-sizing: border-box;
+        background: -webkit-linear-gradient(rgba(255,255,255,0),rgba(86,86,86,.08));
+        border-right: 15px solid #fff;
+        border-bottom: 10px solid #fff;
 }
 
 .main-stats span {
@@ -623,4 +623,9 @@ border-color: #309e14;
 }
 .last-box {
       border-right: 15px solid #ffffff !important;
+}
+
+.mdrp {
+    float:right !important;
+        cursor: pointer;
 }
