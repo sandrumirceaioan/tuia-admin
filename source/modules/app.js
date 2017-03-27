@@ -21,7 +21,8 @@ angular.module('tuia', [
     'admin-login',
     'admin-orders',
 		'admin-messages',
-		'admin-products'
+		'admin-products',
+		'admin-blog'
 	])
 	.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationProvider', 'LightboxProvider', 'ChartJsProvider', function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, LightboxProvider, ChartJsProvider) {
 
