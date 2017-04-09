@@ -13,37 +13,49 @@
                     return $q.reject(error);
                 });
         };
-        // this.getOneMessage = function(param){
-        //     return $http({
-        //             method: 'POST',
-        //             url: '../routes/getOneMessage.php',
-        //             data: param
-        //         }).then(function(result){
-        //             return result.data;
-        //         }).catch(function(error){
-        //             return $q.reject(error);
-        //         });
-        // };
-        // this.replyMessage = function(param){
-        //     return $http({
-        //             method: 'POST',
-        //             url: '../routes/replyUpdateMessage.php',
-        //             data: param
-        //         }).then(function(result){
-        //             return result.data;
-        //         }).catch(function(error){
-        //             return $q.reject(error);
-        //         });
-        // };
-        // this.getNewMessagesCount = function(){
-        //     return $http({
-        //             method: 'POST',
-        //             url: '../routes/getNewMessages.php'
-        //         }).then(function(result){
-        //             return result.data;
-        //         }).catch(function(error){
-        //             return $q.reject(error);
-        //         });
-        // };
+        this.getOnePost = function(param){
+            return $http({
+                    method: 'POST',
+                    url: '../routes/getOnePost.php',
+                    data: param
+                }).then(function(result){
+                    return result.data;
+                }).catch(function(error){
+                    return $q.reject(error);
+                });
+        };
+        this.updateOnePost = function(param){
+            return $http({
+                    method: 'POST',
+                    url: '../routes/updateOnePost.php',
+                    data: param
+                }).then(function(result){
+                    return result.data;
+                }).catch(function(error){
+                    return $q.reject(error);
+                });
+        };
+        this.deletePostImage = function(param){
+            return $http({
+                    method: 'POST',
+                    url: '../routes/deletePostImage.php',
+                    data: param
+                }).then(function(result){
+                    return result.data;
+                }).catch(function(error){
+                    return $q.reject(error);
+                });
+        };
+        this.updateImageData = function(param){
+            return $http({
+                    method: 'POST',
+                    url: '../routes/updatePostImageData.php',
+                    data: param
+                }).then(function(result){
+                    return result.data;
+                }).catch(function(error){
+                    return $q.reject(error);
+                });
+        };
     }
 })();

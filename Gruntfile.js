@@ -32,7 +32,11 @@ module.exports = function(grunt) {
                     './bower_components/angular-chart.js/dist/angular-chart.min.js',
                     './bower_components/moment/moment.js',
                     './bower_components/bootstrap-daterangepicker/daterangepicker.js',
-                    './bower_components/angular-daterangepicker/js/angular-daterangepicker.min.js'
+                    './bower_components/angular-daterangepicker/js/angular-daterangepicker.min.js',
+                    './bower_components/ng-tags-input/ng-tags-input.min.js',
+                    './bower_components/textAngular/dist/textAngular-rangy.min.js',
+                    './bower_components/textAngular/dist/textAngular-sanitize.min.js',
+                    './bower_components/textAngular/dist/textAngular.min.js',
                 ],
                 dest: './manage/bower.js'
             },
@@ -56,7 +60,8 @@ module.exports = function(grunt) {
                     './bower_components/ng-notify/dist/ng-notify.min.css',
                     './bower_components/ng-tags-input/ng-tags-input.min.css',
                     './bower_components/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.min.css',
-                    './bower_components/bootstrap-daterangepicker/daterangepicker.css'
+                    './bower_components/bootstrap-daterangepicker/daterangepicker.css',
+                    './bower_components/ng-tags-input/ng-tags-input.min.css'
                 ],
                 dest: './manage/bower.css'
             },

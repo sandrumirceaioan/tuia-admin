@@ -1,0 +1,157 @@
+<div class="row inner contact">
+    <div class="col-md-6">
+        <h4><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Post details <small>({{post.the_title}})</small></h4>
+        <hr>
+
+    <form name="form">
+        <div class="row">
+        <div class="col-xs-6">
+            <div class="form-group customFields" ng-class="{ 'has-error': form.title.$dirty && form.title.$error.required }">
+                <input type="text" name="title" class="form-control" ng-change="createUrl(post.the_title)" ng-trim="false" ng-model="post.the_title" placeholder="Post Title" required autofocus>
+            </div>
+            <div class="form-group customFields" ng-class="{ 'has-error': form.url.$dirty && form.url.$error.required }">
+                <input type="text" name="url" class="form-control" ng-model="post.the_url" placeholder="Post URL" required autofocus>
+            </div>
+            <div class="row">
+            <div class="form-group customFields col-xs-6" ng-class="{ 'has-error': form.order.$dirty && form.order.$error.required }">
+                <input type="text" name="order" class="form-control" ng-model="post.the_order" placeholder="Order" required autofocus>
+            </div>
+            <div class="form-group customFields col-xs-6" ng-class="{ 'has-error': form.date.$dirty && form.date.$error.required }">
+                <input type="text" name="date" class="form-control" ng-model="post.the_date" placeholder="Date" required autofocus>
+            </div>
+            </div>
+        </div>
+
+        <div class="col-xs-6">
+            <div class="form-group customFields" ng-class="{ 'has-error': form.shortDescription.$dirty && form.shortDescription.$error.required }">
+                <textarea class="form-control" name="shortDescription" rows="7" ng-model="post.the_shortdescription" placeholder="Short Description" required autofocus></textarea>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+                <tags-input name="keywords" ng-model="post.the_metakeywords" ng-class="{ 'has-error': form.keywords.$dirty && form.keywords.$error.required || form.keywords.length < 1}"></tags-input>
+                <input type="hidden" ng-model="post.the_metakeywords" name="keywords" required>
+        </div>
+
+        <div class="col-xs-12">
+            <text-angular ng-model="post.the_description"></text-angular>
+            <br />
+        </div>
+        <div class="col-xs-8 form-group customFields">
+            <button ng-hide="pageObj.ind || pageObj.ind===0" type="submit" class="btn btn-success" name="submit" ng-click="savePost(post)" ng-disabled="form.$invalid">
+                <span ng-show="!post.draftStatus">Publish Post</span>
+                <span ng-show="post.draftStatus">Save Draft</span>
+            </button>
+        </div>
+        <div class="col-xs-2">
+            <div class="checkbox">
+                <label><input type="checkbox" ng-model="post.the_robots">NOINDEX</label>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <div class="checkbox">
+                <label><input type="checkbox" ng-model="post.the_active">DRAFT</label>
+            </div>
+        </div>
+
+
+        <div class="clearfix"></div>
+        </div>
+    </form>
+
+</div>
+<div class="col-md-6">
+  <h4><i class="fa fa-picture-o" aria-hidden="true"></i> Post images</h4>
+  <hr>
+  <ul class="admin-image-list">
+    <li ng-repeat="image in images">
+      <a ng-click="Lightbox.openModal(images, $index)">
+        <img ng-src="{{image.thumbUrl}}" class="img-thumbnail my-thumbnail">
+      </a>
+      <div class="clearfix"></div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <a ng-hide="confirm" ng-click="confirm = true" class="btn btn-default my-delete-btn"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+          <a ng-show="confirm" ng-click="confirm = false" class="btn btn-danger my-confirm-btn"><i class="fa fa-ban" aria-hidden="true"></i></a>
+          <a ng-show="confirm" ng-click="deleteImage(image.file, $index)" class="btn btn-success my-confirm-btn"><i class="fa fa-check" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </li>
+    <div class="clearfix"></div>
+  </ul>
+  <div class="clearfix"></div>
+  <br>
+  <!-- start upload -->
+  <div class="row">
+
+      <div class="col-md-12">
+
+          <h4><i class="fa fa-upload" aria-hidden="true"></i> Upload images</h4>
+          <hr>
+
+          <!-- Example: nv-file-select="" uploader="{Object}" options="{Object}" filters="{String}" -->
+          <input type="file" nv-file-select="" uploader="uploader" multiple  /><br/>
+
+      </div>
+
+      <div class="col-md-12" style="margin-bottom: 40px">
+
+          <table class="table">
+              <thead>
+                  <tr>
+                      <th width="50%">Name</th>
+                      <th ng-show="uploader.isHTML5">Size</th>
+                      <th>Actions</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr ng-repeat="item in uploader.queue">
+                      <td>
+                          <strong>{{ item.file.name }}</strong>
+                          <!-- Image preview -->
+                          <!--auto height-->
+                          <!--<div ng-thumb="{ file: item.file, width: 100 }"></div>-->
+                          <!--auto width-->
+                          <div ng-show="uploader.isHTML5" ng-thumb="{ file: item._file, height: 100 }"></div>
+                          <!--fixed width and height -->
+                          <!--<div ng-thumb="{ file: item.file, width: 100, height: 100 }"></div>-->
+                      </td>
+                      <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
+                      <td nowrap>
+                          <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+                              <i class="fa fa-upload" aria-hidden="true"></i> Upload
+                          </button>
+                          <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                              <i class="fa fa-trash" aria-hidden="true"></i> Remove
+                          </button>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+
+          <div class="row">
+              <div class="col-md-12">
+                  Progress:
+                  <div class="progress" style="">
+                      <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
+                  </div>
+              </div>
+              <div class="col-md-6 form-group customFields">
+                  <button type="button" class="btn btn-success" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">
+                      <i class="fa fa-upload" aria-hidden="true"></i> Upload all
+                  </button>
+              </div>
+              <div class="col-md-6 form-group customFields">
+                  <button type="button" class="btn btn-danger" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length">
+                      <i class="fa fa-trash" aria-hidden="true"></i> Remove all
+                  </button>
+              </div>
+          </div>
+
+      </div>
+
+  </div>
+  <!-- end upload-->
+
+</div>
+</div>
