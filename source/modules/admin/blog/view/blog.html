@@ -1,6 +1,6 @@
 <div class="row inner contact">
     <div class="col-md-12">
-        <h4><i class="fa fa-envelope-o" aria-hidden="true"></i> Blog</h4>
+        <h4><i class="fa fa-rss" aria-hidden="true"></i> Blog</h4>
         <table id="tuiaBlog" datatable="ng" dt-options="dtOptions" dt-column-defs="dtColumnDefs" class="table table-striped table-bordered table-hover">
         	<thead>
           	<tr>
@@ -14,11 +14,11 @@
           	</tr>
           </thead>
         	<tbody>
-        		<tr ng-repeat="post in posts">
+        		<tr ng-repeat="post in posts" ng-hide="post.the_url == 'blog'">
           		<td>{{post.the_id}}</td>
           		<td>{{post.the_url}}</td>
           		<td>{{post.the_title}}</td>
-                <td>{{post.the_image}}</td>
+                <td><img ng-src="../images/blog/{{post.the_image[0].image}}" alt="" title="" class="products-list-image"></td>
           		<td>{{post.the_shortdescription}}</td>
           		<td>{{post.the_order}}</td>
                 <td>

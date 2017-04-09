@@ -35,16 +35,6 @@
                     return $q.reject(error);
                 });
         };
-        // this.getNewOrdersCount = function(){
-        //     return $http({
-        //             method: 'POST',
-        //             url: '../routes/getNewOrders.php'
-        //         }).then(function(result){
-        //             return result.data;
-        //         }).catch(function(error){
-        //             return $q.reject(error);
-        //         });
-        // };
         this.deleteProductImage = function(param){
             return $http({
                     method: 'POST',

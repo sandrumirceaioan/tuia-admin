@@ -14,6 +14,8 @@ angular.module('tuia', [
   'bootstrapLightbox',
 	'angularFileUpload',
 	'daterangepicker',
+	'textAngular',
+	'ngTagsInput',
   'chart.js',
     'admin',
     'admin-container',

@@ -27,20 +27,20 @@ angular.module('admin-blog',[]).config(['$stateProvider', function($stateProvide
               });
           }
         }
-    });
-    /*
-    .state('admin.dashboard.message', {
-            url: "/messages/:messageDetails",
+    })
+
+    .state('admin.dashboard.post', {
+            url: "/post/:postDetails",
             ncyBreadcrumb: {
-                label: 'Message'
+                label: 'Post'
             },
             templateProvider: function($templateCache) {
-                return $templateCache.get('modules/admin/messages/view/message.html');
+                return $templateCache.get('modules/admin/blog/view/post.html');
             },
-            controller: 'messageCtrl',
+            controller: 'postCtrl',
             resolve: {
-              oneMsg: function($q, $rootScope, $state, messages, ngNotify, $stateParams){
-                  return messages.getOneMessage($stateParams).then(function(result){
+              onePost: function($q, blog, $rootScope, $state, ngNotify, $stateParams){
+                  return blog.getOnePost($stateParams).then(function(result){
                       return result;
                   }).catch(function(error){
                       var err = JSON.parse(error.data);
@@ -55,7 +55,7 @@ angular.module('admin-blog',[]).config(['$stateProvider', function($stateProvide
                   });
               }
             }
-        });*/
+        });
 
 }]);
 })();

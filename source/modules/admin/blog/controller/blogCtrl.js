@@ -26,6 +26,11 @@
             DTColumnDefBuilder.newColumnDef(6).notSortable()
       ];
 
+      getPosts = getPosts.map(function(elem){
+          elem.the_image = JSON.parse(elem.the_image);
+          return elem;
+      });
+
         $scope.posts = getPosts;
         console.log('BLOG > posts');
 
