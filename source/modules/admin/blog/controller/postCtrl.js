@@ -43,8 +43,11 @@
                     the_metakeywords: post.the_metakeywords,
                     the_active: (post.the_active == true) ? 1 : 0,
                     the_robots: (post.the_robots == true) ? 1 : 0,
-                    the_description: post.the_description
+                    the_description: post.the_description,
+                    the_date: post.the_date
                 }
+                
+                console.log(toSave);
 
                 blog.updateOnePost(toSave).then(function(result){
                     var scc = JSON.parse(result);

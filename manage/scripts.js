@@ -14,6 +14,8 @@ angular.module('tuia', [
   'bootstrapLightbox',
 	'angularFileUpload',
 	'daterangepicker',
+	'textAngular',
+	'ngTagsInput',
   'chart.js',
     'admin',
     'admin-container',
@@ -78,20 +80,20 @@ angular.module('admin-blog',[]).config(['$stateProvider', function($stateProvide
               });
           }
         }
-    });
-    /*
-    .state('admin.dashboard.message', {
-            url: "/messages/:messageDetails",
+    })
+
+    .state('admin.dashboard.post', {
+            url: "/post/:postDetails",
             ncyBreadcrumb: {
-                label: 'Message'
+                label: 'Post'
             },
             templateProvider: function($templateCache) {
-                return $templateCache.get('modules/admin/messages/view/message.html');
+                return $templateCache.get('modules/admin/blog/view/post.html');
             },
-            controller: 'messageCtrl',
+            controller: 'postCtrl',
             resolve: {
-              oneMsg: function($q, $rootScope, $state, messages, ngNotify, $stateParams){
-                  return messages.getOneMessage($stateParams).then(function(result){
+              onePost: function($q, blog, $rootScope, $state, ngNotify, $stateParams){
+                  return blog.getOnePost($stateParams).then(function(result){
                       return result;
                   }).catch(function(error){
                       var err = JSON.parse(error.data);
@@ -106,7 +108,7 @@ angular.module('admin-blog',[]).config(['$stateProvider', function($stateProvide
                   });
               }
             }
-        });*/
+        });
 
 }]);
 })();
@@ -124,22 +126,22 @@ angular.module('admin-blog',[]).config(['$stateProvider', function($stateProvide
                 },
                 controller: 'homeCtrl',
                 resolve: {
-                //   getAPIv4Chart1: function($q, dashboard, ngNotify){
-                //       var initialDates = {startDate: moment().subtract(7,'d').format('YYYY-MM-DD'), endDate: moment().format('YYYY-MM-DD')};
-                //       return dashboard.getAPIv4Stats(initialDates, false).then(function(result){
-                //           return result;
-                //       }).catch(function(error){
-                //           var err = JSON.parse(error.data);
-                //           ngNotify.set(err.error, {
-                //               theme: 'pure',
-                //               type: 'error',
-                //               duration: 3000,
-                //               button: true,
-                //               html: true
-                //           });
-                //           return $q.reject(error);
-                //       });
-                //   }
+                  getAPIv4Chart1: function($q, dashboard, ngNotify){
+                      var initialDates = {startDate: moment().subtract(7,'d').format('YYYY-MM-DD'), endDate: moment().format('YYYY-MM-DD')};
+                      return dashboard.getAPIv4Stats(initialDates, false).then(function(result){
+                          return result;
+                      }).catch(function(error){
+                          var err = JSON.parse(error.data);
+                          ngNotify.set(err.error, {
+                              theme: 'pure',
+                              type: 'error',
+                              duration: 3000,
+                              button: true,
+                              html: true
+                          });
+                          return $q.reject(error);
+                      });
+                  }
                 }
             });
 
@@ -433,8 +435,166 @@ angular.module('admin-products',[]).config(['$stateProvider', function($statePro
             DTColumnDefBuilder.newColumnDef(6).notSortable()
       ];
 
+      getPosts = getPosts.map(function(elem){
+          elem.the_image = JSON.parse(elem.the_image);
+          return elem;
+      });
+
         $scope.posts = getPosts;
         console.log('BLOG > posts');
+
+    }
+})();
+
+(function(){
+    angular.module('admin-blog').controller('postCtrl', postCtrl);
+    postCtrl.$inject = ['$scope', '$state', '$rootScope', 'ngNotify', 'blog', 'onePost', 'Lightbox', '$uibModal', '$document', 'FileUploader'];
+    function postCtrl($scope, $state, $rootScope, ngNotify, blog, onePost, Lightbox, $uibModal, $document, FileUploader){
+
+            $scope.createUrl = function(title){
+                var str = title && title.trim().replace(/\s+/g,'-') || '';
+                $scope.post.the_url = str.toLowerCase();
+            };
+
+            if (onePost.the_active == "1") onePost.the_active = true;
+            if (onePost.the_active == "0") onePost.the_active = false;
+            if (onePost.the_robots == "1") onePost.the_robots = true;
+            if (onePost.the_robots == "0") onePost.the_robots = false;
+
+            onePost.the_metakeywords = JSON.parse(onePost.the_metakeywords);
+
+            $scope.post = onePost;
+
+            console.log('$scope.blog:',$scope.post);
+            $scope.Lightbox = Lightbox;
+
+            $scope.initialImages = JSON.parse(onePost.the_image);
+            $scope.images = $scope.initialImages.map(function(img){
+                return {
+                  url: '../images/blog/' + img.image,
+                  caption: img.alt,
+                  thumbUrl: '../images/blog/small/' + img.image,
+                  file: img.image
+                };
+            });
+
+            /* update post info*/
+            $scope.savePost = function(post){
+
+                var toSave = {
+                    id: parseInt(onePost.the_id),
+                    the_title: post.the_title,
+                    the_url: post.the_url,
+                    the_order: post.the_order,
+                    the_shortdescription: post.the_shortdescription,
+                    the_metadescription: post.the_shortdescription,
+                    the_metakeywords: post.the_metakeywords,
+                    the_active: (post.the_active == true) ? 1 : 0,
+                    the_robots: (post.the_robots == true) ? 1 : 0,
+                    the_description: post.the_description,
+                    the_date: post.the_date
+                }
+                
+                console.log(toSave);
+
+                blog.updateOnePost(toSave).then(function(result){
+                    var scc = JSON.parse(result);
+                    ngNotify.set(scc.success, {
+                        theme: 'pure',
+                        type: 'success',
+                        duration: 3000,
+                        button: true,
+                        html: true
+                    });
+                }).catch(function(error){
+                    var err = JSON.parse(error.data);
+                    ngNotify.set(err.error, {
+                        theme: 'pure',
+                        type: 'error',
+                        duration: 3000,
+                        button: true,
+                        html: true
+                    });
+                });
+            }
+
+            /* delete image */
+            $scope.deleteImage = function(img,index){
+
+                    if ($scope.images.length === 1) {
+                        ngNotify.set('Cannot delete last image!', {
+                            theme: 'pure',
+                            type: 'error',
+                            duration: 3000,
+                            button: true,
+                            html: true
+                        });
+                        return;
+                    };
+
+                    $scope.initialImages = $scope.initialImages.filter(function(elem){
+                       if (img !== elem.image) return elem;
+                    });
+
+                  blog.deletePostImage({id: parseInt(onePost.the_id), file:img, arr: $scope.initialImages}).then(function(result){
+                          var scc = JSON.parse(result);
+                          ngNotify.set(scc.success, {
+                              theme: 'pure',
+                              type: 'success',
+                              duration: 3000,
+                              button: true,
+                              html: true
+                          });
+                          $state.reload();
+                  }).catch(function(error){
+                          var err = JSON.parse(error.data);
+                          ngNotify.set(err.error, {
+                              theme: 'pure',
+                              type: 'error',
+                              duration: 3000,
+                              button: true,
+                              html: true
+                          });
+                  });
+
+            }
+
+            /* upload image */
+            var uploader = $scope.uploader = new FileUploader({
+                url: '../routes/uploadPostImage.php'
+            });
+
+            uploader.onCompleteItem = function(fileItem, response, status, headers) {
+                var imgAlt = fileItem.file.name.split(".");
+                $scope.initialImages.push({
+                    alt: imgAlt[0],
+                    image: fileItem.file.name,
+                    order: 999
+                });
+            };
+
+            uploader.onCompleteAll = function() {
+                blog.updateImageData({images: $scope.initialImages, id: parseInt(onePost.the_id)}).then(function(result){
+                    var scc = JSON.parse(result);
+                    ngNotify.set(scc.success, {
+                        theme: 'pure',
+                        type: 'success',
+                        duration: 3000,
+                        button: true,
+                        html: true
+                    });
+                    $state.reload();
+                }).catch(function(error){
+                    var err = JSON.parse(error.data);
+                    ngNotify.set(err.error, {
+                        theme: 'pure',
+                        type: 'error',
+                        duration: 3000,
+                        button: true,
+                        html: true
+                    });
+                });
+            };
 
     }
 })();
@@ -454,38 +614,50 @@ angular.module('admin-products',[]).config(['$stateProvider', function($statePro
                     return $q.reject(error);
                 });
         };
-        // this.getOneMessage = function(param){
-        //     return $http({
-        //             method: 'POST',
-        //             url: '../routes/getOneMessage.php',
-        //             data: param
-        //         }).then(function(result){
-        //             return result.data;
-        //         }).catch(function(error){
-        //             return $q.reject(error);
-        //         });
-        // };
-        // this.replyMessage = function(param){
-        //     return $http({
-        //             method: 'POST',
-        //             url: '../routes/replyUpdateMessage.php',
-        //             data: param
-        //         }).then(function(result){
-        //             return result.data;
-        //         }).catch(function(error){
-        //             return $q.reject(error);
-        //         });
-        // };
-        // this.getNewMessagesCount = function(){
-        //     return $http({
-        //             method: 'POST',
-        //             url: '../routes/getNewMessages.php'
-        //         }).then(function(result){
-        //             return result.data;
-        //         }).catch(function(error){
-        //             return $q.reject(error);
-        //         });
-        // };
+        this.getOnePost = function(param){
+            return $http({
+                    method: 'POST',
+                    url: '../routes/getOnePost.php',
+                    data: param
+                }).then(function(result){
+                    return result.data;
+                }).catch(function(error){
+                    return $q.reject(error);
+                });
+        };
+        this.updateOnePost = function(param){
+            return $http({
+                    method: 'POST',
+                    url: '../routes/updateOnePost.php',
+                    data: param
+                }).then(function(result){
+                    return result.data;
+                }).catch(function(error){
+                    return $q.reject(error);
+                });
+        };
+        this.deletePostImage = function(param){
+            return $http({
+                    method: 'POST',
+                    url: '../routes/deletePostImage.php',
+                    data: param
+                }).then(function(result){
+                    return result.data;
+                }).catch(function(error){
+                    return $q.reject(error);
+                });
+        };
+        this.updateImageData = function(param){
+            return $http({
+                    method: 'POST',
+                    url: '../routes/updatePostImageData.php',
+                    data: param
+                }).then(function(result){
+                    return result.data;
+                }).catch(function(error){
+                    return $q.reject(error);
+                });
+        };
     }
 })();
 
@@ -1257,16 +1429,6 @@ angular.module('admin-products').directive('ngThumb', ['$window', function($wind
                     return $q.reject(error);
                 });
         };
-        // this.getNewOrdersCount = function(){
-        //     return $http({
-        //             method: 'POST',
-        //             url: '../routes/getNewOrders.php'
-        //         }).then(function(result){
-        //             return result.data;
-        //         }).catch(function(error){
-        //             return $q.reject(error);
-        //         });
-        // };
         this.deleteProductImage = function(param){
             return $http({
                     method: 'POST',
