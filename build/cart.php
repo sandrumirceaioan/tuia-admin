@@ -8,7 +8,8 @@ function buildcart($url,$type) {
 
 foreach ($_SESSION as $name => $value) {
 	
-        $layout_item = $layout_item_fresh;        
+        $layout_item = $layout_item_fresh; 
+		$totalQty += $value;
                 
                 //pentru fiecare sesiune cart_xx / fiecare produs din cart:
 		if ($value > 0) { //daca nu sunt sesiuni salvate -> cart-ul este gol!
@@ -18,7 +19,7 @@ foreach ($_SESSION as $name => $value) {
 			
 			while ($row = mysql_fetch_assoc($query)) {
 				$total = $row['the_newprice'] * $value;
-                                
+								
                                 
                                 $layout_item = str_replace('{{ITEM_URL}}',$row['the_url'],$layout_item);
                                 
@@ -42,9 +43,8 @@ foreach ($_SESSION as $name => $value) {
 			echo '</tr>';
 		}
 		$gtotal = $gtotal + $total;
-		
 	}
-        
+      
 	if ($value > 0) {
 	
         $items_list .= $layout_item;
@@ -76,7 +76,30 @@ $total_div = '<p class="continue-shop"><a href="/produse">Inapoi la produse</a><
 
 } else {
 
-$layout = str_replace('{{_CART_ITEMS}}',$items_list,$layout);        
+$layout = str_replace('{{_CART_ITEMS}}',$items_list,$layout);  
+
+if ($totalQty < 5) {
+	$need = 5 - $totalQty;
+	$total_div = '
+                <div class="col-md-2">
+		<p class="continue-shop"><a href="/produse">Inapoi la produse</a></p>
+                </div>
+                <div class="col-md-6"></div>
+                    <div class="col-md-4 cart_totals">
+                        <div class="box-inner">
+                            <form action="#">
+                                <table>
+                                    <tr class="cart-total">
+                                        <th>TOTAL</th><td>'.number_format($gtotal, 0, ' ', '.').' Lei</td>
+                                    </tr>
+                                </table>
+                            </form>
+			    <a class="finish-btn-warning">Cantitate minima 5<br /> <small><i>adauga in cos inca</i></small> '.$need.'</a>
+                        </div>
+                    </div><!-- end discount -->
+';
+} else {
+      
 $total_div = '
                 <div class="col-md-2">
 		<p class="continue-shop"><a href="/produse">Inapoi la produse</a></p>
@@ -95,6 +118,7 @@ $total_div = '
                         </div>
                     </div><!-- end discount -->
 ';
+}
 }
 
 $layout = str_replace('{{CART_GRAND_TOTAL}}',$total_div,$layout);
